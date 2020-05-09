@@ -14,10 +14,16 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="HoleDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HoleDetector"]
+shape = SubResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
 [node name="MouseAnchor" type="Position2D" parent="."]
 
 [node name="CursorDirection" parent="MouseAnchor" instance=ExtResource( 3 )]
-position = Vector2( 141, 0 )
+position = Vector2( 100, 0 )
+[connection signal="area_entered" from="HoleDetector" to="." method="_on_HoleDetector_area_entered"]

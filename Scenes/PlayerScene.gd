@@ -29,9 +29,9 @@ func _process(delta):
 		
 		MOVE:
 			cursorDirection.hide()
-			
-			if(Input.is_action_just_pressed("ui_mouse_click")):
-				state = IDLE
 		
-	position += delta_speed * direction
-	
+	var collision =  move_and_collide(delta_speed * direction)
+
+func _on_HoleDetector_area_entered(area):
+	state = IDLE
+	global_position = area.global_position
