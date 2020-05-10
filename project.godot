@@ -19,6 +19,10 @@ config/name="Godot-wild-jam- 21"
 run/main_scene="res://Scenes/Debug.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/dpi/allow_hidpi=true
+
 [input]
 
 ui_mouse_click={
