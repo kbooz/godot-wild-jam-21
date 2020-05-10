@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Classes/Hole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Blocks/MovingBouncyBlock.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" instance=ExtResource( 1 )]
 
@@ -14,5 +15,8 @@ position = Vector2( 328.651, 213.25 )
 [node name="InitialPosition" parent="." index="2"]
 position = Vector2( 61.1989, 268.75 )
 
-[node name="BaseBlock" parent="." index="4"]
-tile_data = PoolIntArray( 196625, 47, 4, 196626, 47, 196609, 196627, 47, 196609, 196628, 47, 196609, 196629, 47, 196609, 196630, 47, 196609, 196631, 47, 196609, 196632, 47, 196609, 196633, 47, 196609, 196634, 47, 196610, 262161, 47, 65539, 327697, 47, 65539, 393233, 47, 65539, 458769, 47, 65539, 524305, 47, 65539, 524311, 47, 4, 524312, 47, 196609, 524313, 47, 196609, 524314, 47, 196610, 589841, 47, 65539, 589847, 47, 65539, 655371, 47, 196608, 655372, 47, 196609, 655373, 47, 196609, 655374, 47, 196609, 655375, 47, 196609, 655376, 47, 196609, 655377, 47, 196615, 655383, 47, 65539, 720919, 47, 65539, 786455, 47, 65539, 851991, 47, 65539, 917527, 47, 65539, 983063, 47, 65539, 1048587, 47, 196608, 1048588, 47, 196609, 1048589, 47, 196609, 1048590, 47, 196609, 1048591, 47, 196609, 1048592, 47, 196609, 1048593, 47, 196609, 1048594, 47, 196609, 1048595, 47, 196609, 1048596, 47, 196609, 1048597, 47, 196609, 1048598, 47, 196609, 1048599, 47, 196615 )
+[node name="MovingBouncyBlock" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 162.208, 181.683 )
+
+[node name="MovingBouncyBlock2" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 246.917, 131.998 )
