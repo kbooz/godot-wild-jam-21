@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Classes/Hole.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Blocks/Basic_TileMap.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" instance=ExtResource( 1 )]
 
@@ -12,5 +11,8 @@ position = Vector2( 521.924, 102.853 )
 [node name="InitialPosition" parent="." index="1"]
 position = Vector2( 123.457, 102.753 )
 
-[node name="TileMap" parent="." index="2" instance=ExtResource( 3 )]
-tile_data = PoolIntArray( 393234, 47, 196608, 393235, 47, 196609, 393236, 47, 196609, 393237, 47, 196610, 851986, 47, 196608, 851987, 47, 196609, 851988, 47, 196609, 851989, 47, 196610 )
+[node name="HarzardBlock" parent="." index="2"]
+tile_data = PoolIntArray( 131090, 47, 3, 196626, 47, 65539, 262162, 47, 65539, 327698, 47, 65539, 393234, 47, 65539, 458770, 47, 196612, 458771, 47, 196609, 458772, 47, 196609, 458773, 47, 196609, 458774, 47, 196609, 458775, 47, 196610 )
+
+[node name="BounceBlock" parent="." index="3"]
+tile_data = PoolIntArray( 917522, 47, 196608, 917523, 47, 196609, 917524, 47, 196609, 917525, 47, 196610 )

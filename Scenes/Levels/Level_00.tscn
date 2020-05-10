@@ -10,3 +10,6 @@ position = Vector2( 527, 168 )
 
 [node name="InitialPosition" parent="." index="1"]
 position = Vector2( 75.2, 168.2 )
+
+[node name="HarzardBlock" parent="." index="2"]
+tile_data = PoolIntArray( 327716, 47, 196611, 524318, 47, 196611, 589835, 47, 196611, 589839, 47, 196611, 720933, 47, 196611, 917520, 47, 196611, 917533, 47, 196611, 1048597, 47, 196611 )
