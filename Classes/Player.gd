@@ -17,6 +17,7 @@ enum {
 
 onready var cursorDirection = $MouseAnchor/CursorDirection
 onready var tween = $Tween
+onready var trail = $Trail
 
 var initial_position = Vector2.ZERO
 
@@ -54,6 +55,7 @@ func on_idle_state():
 func on_move_state(delta):
 	cursorDirection.hide()
 	var delta_speed = SPEED * delta
+	trail.add_point(position)
 	
 	var collision =  move_and_collide(delta_speed * velocity)
 	
