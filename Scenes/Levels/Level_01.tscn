@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Classes/Hole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Blocks/Basic_TileMap.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" instance=ExtResource( 1 )]
 
@@ -9,7 +10,10 @@
 position = Vector2( 444, 481 )
 
 [node name="Hole2" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( 700, 209 )
+position = Vector2( 521.924, 102.853 )
 
 [node name="InitialPosition" parent="." index="2"]
-position = Vector2( 735.2, 83.2 )
+position = Vector2( 88.5397, 170.492 )
+
+[node name="TileMap" parent="." index="3" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 524300, 47, 196608, 524301, 47, 196609, 524302, 47, 196609, 524303, 47, 196609, 524304, 47, 196609, 524305, 47, 196609, 524306, 47, 196609, 524307, 47, 196609, 524308, 47, 196609, 524309, 47, 196609, 524310, 47, 196609, 524311, 47, 196609, 524312, 47, 196609, 524313, 47, 196609, 524314, 47, 196609, 524315, 47, 196610, 786444, 47, 196608, 786445, 47, 196609, 786446, 47, 196609, 786447, 47, 196609, 786448, 47, 196609, 786449, 47, 196609, 786450, 47, 196609, 786451, 47, 196609, 786452, 47, 196609, 786453, 47, 196609, 786454, 47, 196609, 786455, 47, 196609, 786456, 47, 196609, 786457, 47, 196609, 786458, 47, 196609, 786459, 47, 196610 )

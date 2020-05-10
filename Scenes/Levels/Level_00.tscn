@@ -6,7 +6,7 @@
 [node name="Node2D" instance=ExtResource( 1 )]
 
 [node name="Hole" parent="." index="0" instance=ExtResource( 2 )]
-position = Vector2( 582, 361 )
+position = Vector2( 527, 168 )
 
 [node name="InitialPosition" parent="." index="1"]
-position = Vector2( 179.2, 317.2 )
+position = Vector2( 75.2, 168.2 )
