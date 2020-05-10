@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+signal next_level
+
 export(int) var SPEED = 800
 export(int) var MAX_VELOCITY = 11
 
@@ -19,12 +21,10 @@ var initial_position = Vector2.ZERO
 
 var state = IDLE
 var velocity = Vector2.ZERO
-var fixing_position = Vector2.ZERO
-var fixing_transition = 0
+var fixing_hole = null
 var acc = 1;
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	MainInstances.Player = self
 	pass
 
@@ -60,7 +60,7 @@ func on_move_state(delta):
 		velocity = velocity.bounce(collision.normal)
 
 func on_fixing_state(delta):
-	var distance = fixing_position - position
+	var distance = fixing_hole.position - position
 	if(distance.length() < 10):
 		move_to_center_of_fixed()
 		return;
@@ -70,10 +70,9 @@ func on_fixing_state(delta):
 	move_and_collide( (velocity ) * delta)
 
 func move_to_center_of_fixed():
-	tween.interpolate_property(self, "position", null, fixing_position, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	tween.interpolate_callback(self, 0.1, "is_fixed")
-	tween.start()
-		#state = IDLE
+	if not tween.is_active():
+		tween.interpolate_property(self, "position", null, fixing_hole.position, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		tween.start()
 
 func accelerate():
 	pass
@@ -82,9 +81,17 @@ func accelerate():
 	#if(accVelocity.length() <= MAX_VELOCITY):
 	#	velocity = accVelocity
 
-func is_fixed():
+func to_idle():
 	state = IDLE
 
 func _on_HoleDetector_area_entered(area: Area2D):
 	state = FIXING
-	fixing_position = area.position
+	fixing_hole = area
+
+func _on_Tween_tween_completed(object, key):
+	to_idle()
+	if(fixing_hole):
+		fixing_hole.touched()
+		fixing_hole = null
+	if(MainInstances.GameManager.can_pass()):
+		emit_signal("next_level")
