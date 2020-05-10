@@ -8,16 +8,37 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Hole",
+"language": "GDScript",
+"path": "res://Classes/Hole.gd"
+}, {
+"base": "Resource",
+"class": "MainInstances",
+"language": "GDScript",
+"path": "res://Scripts/MainInstances.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Classes/Player.gd"
+} ]
 _global_script_class_icons={
-
+"Hole": "",
+"MainInstances": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Godot-wild-jam- 21"
-run/main_scene="res://Scenes/Debug.tscn"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+ResourceLoader="*res://Scripts/ResourceLoader.gd"
 
 [display]
 

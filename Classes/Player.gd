@@ -1,8 +1,10 @@
 extends KinematicBody2D
+class_name Player
 
 export(int) var SPEED = 1000
 export(int) var MAX_VELOCITY = 11
 
+var MainInstances = ResourceLoader.MainInstances
 
 enum {
 	IDLE,
@@ -22,11 +24,15 @@ var fixing_transition = 0
 var acc = 1;
 
 func _ready():
-	initial_position = position
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	pass # Replace with function body.
+	MainInstances.Player = self
+	pass
 
 func _physics_process(delta):
+		# DEBUG
+	if(Input.is_action_just_pressed("ui_accept")):
+		state = IDLE
+		position = initial_position
 	match state:
 		IDLE:
 			on_idle_state()
@@ -35,10 +41,7 @@ func _physics_process(delta):
 		FIXING:
 			on_fixing_state(delta)
 
-	# DEBUG
-	if(Input.is_action_just_pressed("ui_accept")):
-		state = IDLE
-		position = initial_position
+
 
 
 func on_idle_state():

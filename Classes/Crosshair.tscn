@@ -3,7 +3,6 @@
 [ext_resource path="res://Classes/Crosshair.gd" type="Script" id=1]
 [ext_resource path="res://Assets/crosshair.png" type="Texture" id=2]
 
-
 [node name="CursorDirection" type="Node2D"]
 script = ExtResource( 1 )
 

@@ -7,15 +7,12 @@
 
 [node name="Hole" parent="." instance=ExtResource( 2 )]
 position = Vector2( 386.262, 247.131 )
-z_index = -1
 
 [node name="Hole2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 620, 407.4 )
-z_index = -1
 
 [node name="Hole3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 734, 175.4 )
-z_index = -1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 131.199, 486.4 )
