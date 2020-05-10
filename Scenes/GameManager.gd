@@ -1,4 +1,5 @@
 extends Node2D
+class_name GameManager
 
 var MainInstances = ResourceLoader.MainInstances
 var holes = []
@@ -11,3 +12,7 @@ func can_pass():
 		if(!hole.is_touched):
 			return false
 	return true
+
+func reset_holes():
+	for hole in holes:
+		hole.reset()

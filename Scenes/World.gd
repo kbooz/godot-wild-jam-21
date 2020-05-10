@@ -38,3 +38,7 @@ func set_level(level: int):
 
 func _on_Player_next_level():
 	next_level()
+
+
+func _on_Player_reset_level():
+	MainInstances.GameManager.reset_holes()

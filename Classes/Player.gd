@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
+signal reset_level
 signal next_level
 
 export(int) var SPEED = 800
@@ -95,3 +96,8 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
 		emit_signal("next_level")
+
+func _on_VisibilityNotifier2D_screen_exited():
+	position = initial_position
+	to_idle()
+	emit_signal("reset_level")
