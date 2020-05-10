@@ -59,8 +59,14 @@ func on_move_state(delta):
 	
 	var collision =  move_and_collide(delta_speed * velocity)
 	
-	if (collision):
-		velocity = velocity.bounce(collision.normal)
+	
+	
+	if (collision && collision.collider):
+		match collision.collider.type:
+			1:
+				die()
+			_:
+				velocity = velocity.bounce(collision.normal)
 
 func on_fixing_state(delta):
 	var distance = fixing_hole.position - position
@@ -78,7 +84,13 @@ func move_to_center_of_fixed():
 
 func to_idle():
 	state = IDLE
-
+	
+func die():
+	position = initial_position
+	MainInstances.PlayerTrail.clear_points()
+	to_idle()
+	emit_signal("reset_level")
+	
 func _on_HoleDetector_area_entered(area: Area2D):
 	state = FIXING
 	fixing_hole = area
@@ -93,7 +105,4 @@ func _on_Tween_tween_completed(object, key):
 		emit_signal("next_level")
 
 func _on_VisibilityNotifier2D_screen_exited():
-	position = initial_position
-	MainInstances.PlayerTrail.clear_points()
-	to_idle()
-	emit_signal("reset_level")
+	die()
