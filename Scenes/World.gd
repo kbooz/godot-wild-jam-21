@@ -5,7 +5,10 @@ var current_level_ref: Node2D = null;
 var current_level: int = 0;
 var max_level = 2
 
+onready var playerTrail = $PlayerTrail
+
 func _ready():
+	MainInstances.PlayerTrail = playerTrail
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	set_level(current_level)
 

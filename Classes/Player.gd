@@ -17,7 +17,6 @@ enum {
 
 onready var cursorDirection = $MouseAnchor/CursorDirection
 onready var tween = $Tween
-onready var trail = $Trail
 
 var initial_position = Vector2.ZERO
 
@@ -42,6 +41,8 @@ func _physics_process(delta):
 			on_move_state(delta)
 		FIXING:
 			on_fixing_state(delta)
+	
+	#MainInstances.PlayerTrail.add_point(position);
 
 func on_idle_state():
 	velocity = Vector2.ZERO
@@ -55,7 +56,6 @@ func on_idle_state():
 func on_move_state(delta):
 	cursorDirection.hide()
 	var delta_speed = SPEED * delta
-	trail.add_point(position)
 	
 	var collision =  move_and_collide(delta_speed * velocity)
 	
@@ -69,20 +69,12 @@ func on_fixing_state(delta):
 		return;
 	
 	velocity += distance
-	accelerate()
 	move_and_collide( (velocity ) * delta)
 
 func move_to_center_of_fixed():
 	if not tween.is_active():
 		tween.interpolate_property(self, "position", null, fixing_hole.position, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		tween.start()
-
-func accelerate():
-	pass
-	#acc += .005
-	#var accVelocity = velocity * acc
-	#if(accVelocity.length() <= MAX_VELOCITY):
-	#	velocity = accVelocity
 
 func to_idle():
 	state = IDLE
@@ -97,9 +89,11 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
+		#MainInstances.PlayerTrail.clear_points()
 		emit_signal("next_level")
 
 func _on_VisibilityNotifier2D_screen_exited():
 	position = initial_position
+	MainInstances.PlayerTrail.clear_points()
 	to_idle()
 	emit_signal("reset_level")

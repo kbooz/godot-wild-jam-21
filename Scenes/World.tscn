@@ -11,5 +11,12 @@ script = ExtResource( 2 )
 
 [node name="GameManager" parent="." instance=ExtResource( 3 )]
 position = Vector2( -176, -100 )
+
+[node name="PlayerTrail" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( 982.206, -100.97 )
+width = 7.0
+default_color = Color( 0.4, 1, 0.479687, 1 )
+joint_mode = 1
 [connection signal="next_level" from="Player" to="." method="_on_Player_next_level"]
 [connection signal="reset_level" from="Player" to="." method="_on_Player_reset_level"]
