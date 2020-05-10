@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
-export(int) var SPEED = 1000
+export(int) var SPEED = 800
 export(int) var MAX_VELOCITY = 11
 
 var MainInstances = ResourceLoader.MainInstances
@@ -41,9 +41,6 @@ func _physics_process(delta):
 		FIXING:
 			on_fixing_state(delta)
 
-
-
-
 func on_idle_state():
 	velocity = Vector2.ZERO
 	acc = 1
@@ -56,11 +53,11 @@ func on_idle_state():
 func on_move_state(delta):
 	cursorDirection.hide()
 	var delta_speed = SPEED * delta
-	accelerate()
 	
 	var collision =  move_and_collide(delta_speed * velocity)
-	if(collision):
-		print(collision)
+	
+	if (collision):
+		velocity = velocity.bounce(collision.normal)
 
 func on_fixing_state(delta):
 	var distance = fixing_position - position
