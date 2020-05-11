@@ -8,6 +8,7 @@ var max_level = 2
 onready var playerTrail = $PlayerTrail
 
 func _ready():
+	VisualServer.set_default_clear_color(Color("#271c22"))
 	MainInstances.PlayerTrail = playerTrail
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	set_level(current_level)
@@ -18,7 +19,7 @@ func _process(_delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-
+			
 	if(Input.is_action_just_pressed("ui_right")):
 		next_level()
 
@@ -38,10 +39,8 @@ func set_level(level: int):
 	current_level = level
 	MainInstances.GameManager.holes = instance.holes
 
-
 func _on_Player_next_level():
 	next_level()
-
 
 func _on_Player_reset_level():
 	MainInstances.GameManager.reset_holes()

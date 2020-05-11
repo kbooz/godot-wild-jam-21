@@ -4,7 +4,7 @@ class_name Player
 signal reset_level
 signal next_level
 
-export(int) var SPEED = 800
+export(int) var SPEED = 700
 export(int) var MAX_VELOCITY = 11
 
 var MainInstances = ResourceLoader.MainInstances
