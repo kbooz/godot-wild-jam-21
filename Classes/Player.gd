@@ -4,7 +4,7 @@ class_name Player
 signal reset_level
 signal next_level
 
-export(int) var SPEED = 700
+export(int) var SPEED = 600
 export(int) var MAX_VELOCITY = 11
 
 var MainInstances = ResourceLoader.MainInstances
@@ -17,6 +17,7 @@ enum {
 
 onready var cursorDirection = $MouseAnchor/CursorDirection
 onready var tween = $Tween
+onready var animator = $AnimationPlayer
 
 var initial_position = Vector2.ZERO
 
@@ -65,6 +66,7 @@ func on_move_state(delta):
 			2:
 				to_idle()
 			_:
+				animator.play("Hit")
 				velocity = velocity.bounce(collision.normal)
 
 func on_fixing_state(delta):
