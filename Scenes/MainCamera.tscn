@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MainCamera.gd" type="Script" id=1]
+
+[node name="MainCamera" type="Camera2D"]
+anchor_mode = 0
+current = true
+script = ExtResource( 1 )
+
+[node name="ScreenshakeTimer" type="Timer" parent="."]
+[connection signal="timeout" from="ScreenshakeTimer" to="." method="_on_ScreenshakeTimer_timeout"]

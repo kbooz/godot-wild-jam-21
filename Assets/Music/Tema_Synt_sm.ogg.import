@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Tema_Synt_sm.ogg-b3b82377eb8e71a592883453ab58f892.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Tema_Synt_sm.ogg"
+dest_files=[ "res://.import/Tema_Synt_sm.ogg-b3b82377eb8e71a592883453ab58f892.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

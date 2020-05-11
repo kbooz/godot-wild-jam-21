@@ -76,7 +76,7 @@ func on_fixing_state(delta):
 		return;
 	
 	velocity += distance
-	move_and_collide( (velocity ) * delta)
+	move_and_collide(velocity * delta)
 
 func move_to_center_of_fixed():
 	if not tween.is_active():
@@ -93,6 +93,7 @@ func die():
 	emit_signal("reset_level")
 	
 func _on_HoleDetector_area_entered(area: Area2D):
+	Events.emit_signal("add_screenshake", 0.3, 0.2)
 	state = FIXING
 	fixing_hole = area
 

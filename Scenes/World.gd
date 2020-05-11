@@ -8,6 +8,7 @@ var max_level = 3
 onready var playerTrail = $PlayerTrail
 
 func _ready():
+	Music.list_play()
 	VisualServer.set_default_clear_color(Color("#271c22"))
 	MainInstances.PlayerTrail = playerTrail
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
