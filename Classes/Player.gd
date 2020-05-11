@@ -56,15 +56,14 @@ func on_idle_state():
 func on_move_state(delta):
 	cursorDirection.hide()
 	var delta_speed = SPEED * delta
-	
 	var collision =  move_and_collide(delta_speed * velocity)
-	
-	
 	
 	if (collision && collision.collider):
 		match collision.collider.type:
 			1:
 				die()
+			2:
+				to_idle()
 			_:
 				velocity = velocity.bounce(collision.normal)
 

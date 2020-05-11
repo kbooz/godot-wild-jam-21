@@ -2,7 +2,8 @@ extends TileMap
 
 enum TYPE {
 	BOUNCE,
-	HARZARD
+	HARZARD,
+	STICKY
 }
 
 export(TYPE) var type = TYPE.BOUNCE
