@@ -60,6 +60,7 @@ func on_move_state(delta):
 	var collision =  move_and_collide(delta_speed * velocity)
 	
 	if (collision && collision.collider):
+		Events.emit_signal("add_screenshake", 0.3, 0.2)
 		match collision.collider.type:
 			1:
 				die()
