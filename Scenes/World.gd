@@ -2,7 +2,7 @@ extends Node
 
 var MainInstances = ResourceLoader.MainInstances
 var current_level_ref: Node2D = null;
-var current_level: int = 7;
+var current_level: int = 0;
 var max_level = 7
 
 onready var playerTrail = $PlayerTrail
