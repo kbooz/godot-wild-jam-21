@@ -6,13 +6,13 @@
 [node name="Node2D" instance=ExtResource( 1 )]
 
 [node name="Hole2" parent="." index="0" instance=ExtResource( 2 )]
-position = Vector2( 521.924, 102.853 )
+position = Vector2( 378, 160 )
 
-[node name="InitialPosition" parent="." index="1"]
-position = Vector2( 123.457, 102.753 )
+[node name="Hole4" parent="." index="1" instance=ExtResource( 2 )]
+position = Vector2( 531, 160 )
 
-[node name="BounceBlock" parent="." index="2"]
-tile_data = PoolIntArray( 393234, 47, 196608, 393235, 47, 196609, 393236, 47, 196609, 393237, 47, 196610, 917522, 47, 196608, 917523, 47, 196609, 917524, 47, 196609, 917525, 47, 196610 )
+[node name="Hole3" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 223, 160 )
 
-[node name="StickyTileMap" parent="." index="5"]
-tile_data = PoolIntArray( 917511, 47, 196608, 917512, 47, 196609, 917513, 47, 196609, 917514, 47, 196610 )
+[node name="InitialPosition" parent="." index="3"]
+position = Vector2( 78, 160 )

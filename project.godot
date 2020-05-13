@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot-wild-jam- 21"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/HUD/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

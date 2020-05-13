@@ -3,12 +3,11 @@ extends Node
 var MainInstances = ResourceLoader.MainInstances
 var current_level_ref: Node2D = null;
 var current_level: int = 0;
-var max_level = 7
+var max_level = 10
 
 onready var playerTrail = $PlayerTrail
 
 func _ready():
-	Music.list_play()
 	VisualServer.set_default_clear_color(Color("#271c22"))
 	MainInstances.PlayerTrail = playerTrail
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

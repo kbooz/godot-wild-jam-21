@@ -6,10 +6,10 @@
 [node name="Node2D" instance=ExtResource( 1 )]
 
 [node name="Hole2" parent="." index="0" instance=ExtResource( 2 )]
-position = Vector2( 517.701, 75.4999 )
+position = Vector2( 527, 102 )
 
 [node name="Hole3" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( 520, 267 )
+position = Vector2( 527, 228.901 )
 
 [node name="InitialPosition" parent="." index="2"]
-position = Vector2( 61.1989, 268.75 )
+position = Vector2( 113, 160 )
