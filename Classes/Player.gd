@@ -71,7 +71,6 @@ func on_move_state(delta):
 			Enums.TILE_TYPE.STICKY:
 				to_idle()
 			_:
-				animator.play("Hit")
 				velocity = velocity.bounce(collision.normal)
 				MainInstances.PlayerTrail.add_point(position)
 				MainInstances.PlayerTrail.add_point(position)

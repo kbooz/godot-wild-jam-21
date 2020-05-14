@@ -39,7 +39,7 @@ func _input(event):
 				wrap_mouse.y = viewport_rect.y - 4
 				can_wrap = true
 			if(can_wrap):
-				viewport.warp_mouse(wrap_mouse)		
+				viewport.warp_mouse(wrap_mouse)
 
 func _process(_delta):
 	if(Input.is_action_just_pressed("ui_pause")):
@@ -54,11 +54,11 @@ func _process(_delta):
 func next_level():
 	var next_level = current_level + 1;
 	MainInstances.Player.to_idle()
+	transitionAnimator.play("Fade Out")
+	yield(get_tree().create_timer(1.0), "timeout")
 	set_level( next_level if next_level <= max_level else 0 )
 
 func set_level(level: int):
-	transitionAnimator.play("Fade Out")
-	yield(get_tree().create_timer(1.0), "timeout")
 	if(current_level_ref):
 		current_level_ref.queue_free()
 		remove_child(current_level_ref)

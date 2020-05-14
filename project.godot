@@ -38,11 +38,6 @@ _global_script_classes=[ {
 "class": "Trail",
 "language": "GDScript",
 "path": "res://Classes/PlayerTrail.gd"
-}, {
-"base": "Line2D",
-"class": "Trail2D",
-"language": "GDScript",
-"path": "res://Classes/Trail2d.gd"
 } ]
 _global_script_class_icons={
 "Enums": "",
@@ -50,14 +45,13 @@ _global_script_class_icons={
 "Hole": "",
 "MainInstances": "",
 "Player": "",
-"Trail": "",
-"Trail2D": ""
+"Trail": ""
 }
 
 [application]
 
 config/name="Godot-wild-jam- 21"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/HUD/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -65,10 +59,6 @@ config/icon="res://icon.png"
 ResourceLoader="*res://Scripts/ResourceLoader.gd"
 Events="*res://Scripts/Events.gd"
 Music="*res://Scenes/SFX/Music.tscn"
-
-[debug]
-
-settings/stdout/print_fps=true
 
 [display]
 

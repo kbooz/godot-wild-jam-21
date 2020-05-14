@@ -1,67 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Classes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/World.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GameManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/MainCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Classes/PlayerTrail.gd" type="Script" id=5]
-[ext_resource path="res://Assets/Misc/curtain.png" type="Texture" id=6]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-render_mode unshaded;
-
-uniform float cutoff : hint_range(0.0, 1.0);
-uniform float smooth_size : hint_range(0.0, 1.0);
-uniform sampler2D mask : hint_albedo;
-
-uniform vec4 color : hint_color;
-
-void fragment()
-{
-	float value = texture(mask, UV).r;
-	float alpha = smoothstep(cutoff, cutoff + smooth_size, value * (1.0 - smooth_size) + smooth_size);
-	COLOR = vec4(color.rgb, alpha);
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/cutoff = 0.0
-shader_param/smooth_size = 0.2
-shader_param/color = null
-shader_param/mask = ExtResource( 6 )
-
-[sub_resource type="Animation" id=3]
-resource_name = "Fade In"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/cutoff")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Fade Out"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:shader_param/cutoff")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
+[ext_resource path="res://Scenes/HUD/TransitionLayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.0636363 ), 0.0, 2.40411, 0, 0, Vector2( 0.550914, 0.572727 ), 1.5286, 1.5286, 0, 0, Vector2( 1, 1 ), 1.72258, 0.0, 0, 0 ]
@@ -75,24 +19,7 @@ script = ExtResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -27, -13 )
 
-[node name="Control" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-material = SubResource( 2 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Animator" type="AnimationPlayer" parent="Control/ColorRect"]
-"anims/Fade In" = SubResource( 3 )
-"anims/Fade Out" = SubResource( 4 )
+[node name="Control" parent="." instance=ExtResource( 6 )]
 
 [node name="GameManager" parent="." instance=ExtResource( 3 )]
 position = Vector2( -176, -100 )
