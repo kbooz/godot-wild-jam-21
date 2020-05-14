@@ -5,7 +5,10 @@ var current_level_ref: Node2D = null;
 var current_level: int = 0;
 var max_level = 20
 
+onready var player = $Player
 onready var playerTrail = $PlayerTrail
+onready var transitionAnimator = $Control/ColorRect/Animator
+onready var transitionTimer = $AnimatorTimer
 
 func _ready():
 	VisualServer.set_default_clear_color(Color("#271c22"))
@@ -29,12 +32,15 @@ func next_level():
 	set_level( next_level if next_level <= max_level else 0 )
 
 func set_level(level: int):
+	transitionAnimator.play("Fade Out")
+	yield(get_tree().create_timer(1.0), "timeout")
 	if(current_level_ref):
 		current_level_ref.queue_free()
 		remove_child(current_level_ref)
 	var new_level = load("res://Scenes/Levels/Level_0%d.tscn" % level)
 	var instance = new_level.instance()
-	add_child(instance)
+	transitionAnimator.play("Fade In")
+	add_child_below_node(player, instance)
 	current_level_ref = instance
 	current_level = level
 	MainInstances.GameManager.holes = instance.holes

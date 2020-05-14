@@ -18,6 +18,7 @@ enum {
 onready var cursorDirection = $MouseAnchor/CursorDirection
 onready var tween = $Tween
 onready var animator = $AnimationPlayer
+onready var nextLevelTimer = $NextLevel
 
 var initial_position = Vector2.ZERO
 
@@ -114,7 +115,10 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
-		emit_signal("next_level")
+		nextLevelTimer.start()
 
 func _on_VisibilityNotifier2D_screen_exited():
 	die()
+
+func _on_NextLevel_timeout():
+	emit_signal("next_level")
