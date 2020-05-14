@@ -9,10 +9,11 @@ func _ready():
 
 func can_pass():
 	for hole in holes:
-		if(!hole.is_touched):
+		if(!hole.state == Enums.HOLE_STATE.TOUCHED):
 			return false
 	return true
 
 func reset_holes():
 	for hole in holes:
 		hole.reset()
+		MainInstances.PlayerTrail.clear_points()

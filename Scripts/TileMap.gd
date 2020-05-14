@@ -1,9 +1,3 @@
 extends TileMap
 
-enum TYPE {
-	BOUNCE,
-	HARZARD,
-	STICKY
-}
-
-export(TYPE) var type = TYPE.BOUNCE
+export(Enums.TILE_TYPE) var type = Enums.TILE_TYPE.BOUNCE

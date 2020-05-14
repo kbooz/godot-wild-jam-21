@@ -1,0 +1,13 @@
+class_name Enums
+
+enum HOLE_STATE {
+	NOT_TOUCHED,
+	FIXING,
+	TOUCHED
+}
+
+enum TILE_TYPE {
+	BOUNCE,
+	HARZARD,
+	STICKY
+}

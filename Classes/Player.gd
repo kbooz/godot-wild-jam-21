@@ -43,35 +43,43 @@ func _physics_process(delta):
 		FIXING:
 			on_fixing_state(delta)
 	
-	#MainInstances.PlayerTrail.add_point(position);
 
 func on_idle_state():
 	velocity = Vector2.ZERO
 	acc = 1
 	cursorDirection.show()
+	if MainInstances.PlayerTrail.get_last_point() != position:
+		MainInstances.PlayerTrail.add_point(position)
 	
 	if(Input.is_action_just_pressed("ui_mouse_click")):
 		velocity = (get_global_mouse_position() - global_position).normalized()
+		MainInstances.PlayerTrail.add_point(position)
 		state = MOVE;
 		
 func on_move_state(delta):
 	cursorDirection.hide()
 	var delta_speed = SPEED * delta
 	var collision =  move_and_collide(delta_speed * velocity)
+	MainInstances.PlayerTrail.follow_point(position)
 	
 	if (collision && collision.collider):
 		Events.emit_signal("add_screenshake", 0.3, 0.05)
 		match collision.collider.type:
-			1:
+			Enums.TILE_TYPE.HARZARD:
 				die()
-			2:
+			Enums.TILE_TYPE.STICKY:
 				to_idle()
 			_:
 				animator.play("Hit")
 				velocity = velocity.bounce(collision.normal)
+				MainInstances.PlayerTrail.add_point(position)
+				MainInstances.PlayerTrail.add_point(position)
+				
 
 func on_fixing_state(delta):
 	var distance = fixing_hole.position - position
+	MainInstances.PlayerTrail.follow_point(position)
+	
 	if(distance.length() < 10):
 		move_to_center_of_fixed()
 		return;
@@ -85,6 +93,7 @@ func move_to_center_of_fixed():
 		tween.start()
 
 func to_idle():
+	MainInstances.PlayerTrail.add_point(position);
 	state = IDLE
 	
 func die():
@@ -97,6 +106,7 @@ func _on_HoleDetector_area_entered(area: Area2D):
 	Events.emit_signal("add_screenshake", 0.3, 0.2)
 	state = FIXING
 	fixing_hole = area
+	fixing_hole.fixing()
 
 func _on_Tween_tween_completed(object, key):
 	to_idle()
@@ -104,7 +114,6 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
-		#MainInstances.PlayerTrail.clear_points()
 		emit_signal("next_level")
 
 func _on_VisibilityNotifier2D_screen_exited():

@@ -7,6 +7,7 @@ var holes : Array = [];
 func _ready():
 	MainInstances.Player.position = initialPosition.position
 	MainInstances.Player.initial_position = initialPosition.position
+	MainInstances.PlayerTrail.clear_points()
 	var tree = get_tree()
 	holes = tree.get_nodes_in_group("Holes")
 	
