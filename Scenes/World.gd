@@ -7,11 +7,36 @@ var max_level = 20
 
 onready var playerTrail = $PlayerTrail
 
+var viewport: Viewport = null
+var viewport_rect: Vector2
+
 func _ready():
 	VisualServer.set_default_clear_color(Color("#271c22"))
 	MainInstances.PlayerTrail = playerTrail
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	viewport = get_viewport()
+	viewport_rect = viewport.get_visible_rect().size
 	set_level(current_level)
+
+func _input(event):
+	if(Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN):
+		if event is InputEventMouseMotion:
+			var can_wrap = false
+			var wrap_mouse = event.position
+			if(event.position.x < 2):
+				wrap_mouse.x = 2
+				can_wrap = true
+			elif(event.position.x + 2 > viewport_rect.x):
+				wrap_mouse.x = viewport_rect.x - 2
+				can_wrap = true
+			if(event.position.y < 4):
+				wrap_mouse.y = 4
+				can_wrap = true
+			elif(event.position.y + 4 > viewport_rect.y):
+				wrap_mouse.y = viewport_rect.y - 4
+				can_wrap = true
+			if(can_wrap):
+				viewport.warp_mouse(wrap_mouse)		
 
 func _process(_delta):
 	if(Input.is_action_just_pressed("ui_pause")):
