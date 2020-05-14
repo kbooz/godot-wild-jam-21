@@ -9,7 +9,7 @@ func _ready():
 
 func can_pass():
 	for hole in holes:
-		if(!hole.is_touched):
+		if(!hole.state == Enums.HOLE_STATE.TOUCHED):
 			return false
 	return true
 

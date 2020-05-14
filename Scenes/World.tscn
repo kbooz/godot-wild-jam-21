@@ -22,7 +22,6 @@ position = Vector2( -176, -100 )
 
 [node name="PlayerTrail" type="Line2D" parent="."]
 z_index = -1
-points = PoolVector2Array( 201.001, 252.001, 391.001, 256.001 )
 width = 7.0
 width_curve = SubResource( 2 )
 default_color = Color( 0.133333, 0.658824, 0.376471, 1 )

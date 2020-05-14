@@ -65,9 +65,9 @@ func on_move_state(delta):
 	if (collision && collision.collider):
 		Events.emit_signal("add_screenshake", 0.3, 0.2)
 		match collision.collider.type:
-			1:
+			Enums.TILE_TYPE.HARZARD:
 				die()
-			2:
+			Enums.TILE_TYPE.STICKY:
 				to_idle()
 			_:
 				animator.play("Hit")
@@ -106,6 +106,7 @@ func _on_HoleDetector_area_entered(area: Area2D):
 	Events.emit_signal("add_screenshake", 0.3, 0.2)
 	state = FIXING
 	fixing_hole = area
+	fixing_hole.fixing()
 
 func _on_Tween_tween_completed(object, key):
 	to_idle()
@@ -113,7 +114,6 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
-		#MainInstances.PlayerTrail.clear_points()
 		emit_signal("next_level")
 
 func _on_VisibilityNotifier2D_screen_exited():
