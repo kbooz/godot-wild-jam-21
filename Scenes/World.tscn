@@ -7,7 +7,7 @@
 [ext_resource path="res://Classes/PlayerTrail.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Misc/curtain.png" type="Texture" id=6]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -24,14 +24,14 @@ void fragment()
 	COLOR = vec4(color.rgb, alpha);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 0.2
 shader_param/color = null
 shader_param/mask = ExtResource( 6 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Fade In"
 length = 0.5
 tracks/0/type = "value"
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Fade Out"
 length = 0.5
 tracks/0/type = "value"
@@ -63,10 +63,10 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.0636363 ), 0.0, 2.40411, 0, 0, Vector2( 0.550914, 0.572727 ), 1.5286, 1.5286, 0, 0, Vector2( 1, 1 ), 1.72258, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 0.21048, 0.273629, 0.945312, 1, 0, 0.789062, 1, 1 )
 
 [node name="Node" type="Node"]
@@ -83,7 +83,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
-material = SubResource( 4 )
+material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -91,8 +91,8 @@ __meta__ = {
 }
 
 [node name="Animator" type="AnimationPlayer" parent="Control/ColorRect"]
-"anims/Fade In" = SubResource( 5 )
-"anims/Fade Out" = SubResource( 6 )
+"anims/Fade In" = SubResource( 3 )
+"anims/Fade Out" = SubResource( 4 )
 
 [node name="GameManager" parent="." instance=ExtResource( 3 )]
 position = Vector2( -176, -100 )
@@ -100,9 +100,9 @@ position = Vector2( -176, -100 )
 [node name="PlayerTrail" type="Line2D" parent="."]
 z_index = -1
 width = 7.0
-width_curve = SubResource( 1 )
+width_curve = SubResource( 5 )
 default_color = Color( 0.133333, 0.658824, 0.376471, 1 )
-gradient = SubResource( 2 )
+gradient = SubResource( 6 )
 joint_mode = 2
 round_precision = 15
 script = ExtResource( 5 )
