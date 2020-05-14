@@ -43,21 +43,24 @@ func _physics_process(delta):
 		FIXING:
 			on_fixing_state(delta)
 	
-	#MainInstances.PlayerTrail.add_point(position);
 
 func on_idle_state():
 	velocity = Vector2.ZERO
 	acc = 1
 	cursorDirection.show()
+	if MainInstances.PlayerTrail.get_last_point() != position:
+		MainInstances.PlayerTrail.add_point(position)
 	
 	if(Input.is_action_just_pressed("ui_mouse_click")):
 		velocity = (get_global_mouse_position() - global_position).normalized()
+		MainInstances.PlayerTrail.add_point(position)
 		state = MOVE;
 		
 func on_move_state(delta):
 	cursorDirection.hide()
 	var delta_speed = SPEED * delta
 	var collision =  move_and_collide(delta_speed * velocity)
+	MainInstances.PlayerTrail.follow_point(position)
 	
 	if (collision && collision.collider):
 		Events.emit_signal("add_screenshake", 0.3, 0.2)
@@ -69,9 +72,14 @@ func on_move_state(delta):
 			_:
 				animator.play("Hit")
 				velocity = velocity.bounce(collision.normal)
+				MainInstances.PlayerTrail.add_point(position)
+				MainInstances.PlayerTrail.add_point(position)
+				
 
 func on_fixing_state(delta):
 	var distance = fixing_hole.position - position
+	MainInstances.PlayerTrail.follow_point(position)
+	
 	if(distance.length() < 10):
 		move_to_center_of_fixed()
 		return;
@@ -85,6 +93,7 @@ func move_to_center_of_fixed():
 		tween.start()
 
 func to_idle():
+	MainInstances.PlayerTrail.add_point(position);
 	state = IDLE
 	
 func die():

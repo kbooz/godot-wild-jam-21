@@ -16,3 +16,4 @@ func can_pass():
 func reset_holes():
 	for hole in holes:
 		hole.reset()
+		MainInstances.PlayerTrail.clear_points()

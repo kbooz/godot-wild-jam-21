@@ -28,12 +28,24 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Classes/Player.gd"
+}, {
+"base": "Line2D",
+"class": "Trail",
+"language": "GDScript",
+"path": "res://Classes/PlayerTrail.gd"
+}, {
+"base": "Line2D",
+"class": "Trail2D",
+"language": "GDScript",
+"path": "res://Classes/Trail2d.gd"
 } ]
 _global_script_class_icons={
 "GameManager": "",
 "Hole": "",
 "MainInstances": "",
-"Player": ""
+"Player": "",
+"Trail": "",
+"Trail2D": ""
 }
 
 [application]
