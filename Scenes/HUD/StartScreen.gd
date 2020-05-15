@@ -1,10 +1,15 @@
 extends Control
 
-onready var transitionLayer = $CanvasLayer2
-onready var transitionAnimator = $CanvasLayer2/TransitionLayer/ColorRect/Animator
+onready var transitionLayer = $TransitionLayer
+onready var transitionAnimator = $TransitionLayer/ColorRect/Animator
 
 func _ready():
+	VisualServer.set_default_clear_color(Color("#3d253b"))
 	Music.list_play()
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		Events.emit_signal("add_screenshake", 0.2, 0.1)
 
 func _on_TextureButton_pressed():
 	transitionLayer.layer = 2

@@ -26,5 +26,5 @@ position = Vector2( 312.117, 156.568 )
 [node name="Hole3" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 521.619, 156.568 )
 
-[node name="Label" parent="." index="7"]
-text = "The M "
+[node name="Label" parent="Control" index="0"]
+text = "The M"

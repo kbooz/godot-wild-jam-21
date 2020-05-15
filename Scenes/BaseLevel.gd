@@ -7,8 +7,8 @@ var MainInstances = ResourceLoader.MainInstances
 var holes : Array = [];
 
 func _ready():
-	print(levelName.rect_size)
-	levelName.rect_position.x = (get_viewport().size.x / 4 - levelName.rect_size.x / 2)
+	#print(get_viewport().size.x)
+	#levelName.rect_position.x = (get_viewport().size.x / 4 - levelName.rect_size.x / 2)
 	MainInstances.Player.position = initialPosition.position
 	MainInstances.Player.initial_position = initialPosition.position
 	MainInstances.PlayerTrail.clear_points()

@@ -17,5 +17,7 @@ tile_data = PoolIntArray( 458767, 47, 0, 458768, 47, 5, 458769, 47, 196609, 4587
 [node name="Hole" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 320.102, 155.571 )
 
-[node name="Label" parent="." index="5"]
+[node name="Label" parent="Control" index="0"]
+margin_left = -41.8865
+margin_right = 42.1135
 text = "The Bounce In"

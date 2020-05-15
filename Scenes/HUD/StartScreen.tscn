@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/UI/blimp_logo.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/blimp_logo_green.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UI/madeby.png" type="Texture" id=2]
 [ext_resource path="res://Assets/UI/start_game_btn.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/HUD/StartScreen.gd" type="Script" id=4]
-[ext_resource path="res://Assets/UI/parallax_test_3.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/HUD/ParallaxBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD/StartScreenCamera.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/HUD/TransitionLayer.tscn" type="PackedScene" id=7]
 
@@ -16,9 +16,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="TransitionLayer" parent="CanvasLayer2" instance=ExtResource( 7 )]
+[node name="TransitionLayer" parent="." instance=ExtResource( 7 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -57,15 +55,5 @@ anchor_mode = 0
 current = true
 script = ExtResource( 6 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 679, 388 )
-
-[node name="parallax_test_3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 341, 195 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_TextureButton_pressed"]

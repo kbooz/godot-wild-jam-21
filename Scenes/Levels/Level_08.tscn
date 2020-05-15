@@ -17,5 +17,7 @@ position = Vector2( -96, 50 )
 [node name="Hole" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 552, 90 )
 
-[node name="Label" parent="." index="5"]
+[node name="Label" parent="Control" index="0"]
+margin_left = -44.0
+margin_right = 43.0
 text = "The Trick Shot"

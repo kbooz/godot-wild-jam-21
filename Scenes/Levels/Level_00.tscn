@@ -11,5 +11,10 @@ position = Vector2( 527, 160 )
 [node name="InitialPosition" parent="." index="1"]
 position = Vector2( 113, 160 )
 
-[node name="Label" parent="." index="5"]
+[node name="Control" parent="." index="5"]
+layer = 0
+
+[node name="Label" parent="Control" index="0"]
+margin_left = -31.8879
+margin_right = 34.1121
 text = "The Launch"

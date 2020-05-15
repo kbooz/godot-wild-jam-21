@@ -6,19 +6,21 @@
 [node name="Node2D" instance=ExtResource( 1 )]
 
 [node name="InitialPosition" parent="." index="0"]
-position = Vector2( 147.868, 160 )
+position = Vector2( 87.5902, 160 )
 
 [node name="HazardTileMap" parent="." index="2"]
-tile_data = PoolIntArray( 524306, 47, 4, 524307, 47, 196610, 524310, 47, 196608, 524311, 47, 7, 589842, 47, 65539, 589847, 47, 65539, 655378, 47, 65539, 655383, 47, 65539, 720914, 47, 196612, 720915, 47, 196610, 720918, 47, 196608, 720919, 47, 196615 )
+tile_data = PoolIntArray( 524302, 47, 0, 524303, 47, 5, 524304, 47, 196609, 524305, 47, 196609, 524306, 47, 196610, 524309, 47, 196608, 524310, 47, 196609, 524311, 47, 196609, 524312, 47, 6, 524313, 47, 2, 589838, 47, 65536, 589839, 47, 65538, 589848, 47, 65536, 589849, 47, 65538, 655374, 47, 65536, 655375, 47, 65538, 655384, 47, 65536, 655385, 47, 65538, 720910, 47, 131072, 720911, 47, 196613, 720912, 47, 196609, 720913, 47, 196609, 720914, 47, 196610, 720917, 47, 196608, 720918, 47, 196609, 720919, 47, 196609, 720920, 47, 196614, 720921, 47, 131074 )
 
 [node name="Hole" parent="." index="4" instance=ExtResource( 2 )]
-position = Vector2( 335.369, 57.4861 )
+position = Vector2( 320.704, 57.4861 )
 
 [node name="Hole3" parent="." index="5" instance=ExtResource( 2 )]
-position = Vector2( 335.369, 161.173 )
+position = Vector2( 320.704, 161.173 )
 
 [node name="Hole2" parent="." index="6" instance=ExtResource( 2 )]
-position = Vector2( 335.369, 268.014 )
+position = Vector2( 320.704, 268.014 )
 
-[node name="Label" parent="." index="7"]
-text = "The Spiked Shell"
+[node name="Label" parent="Control" index="0"]
+margin_left = -56.0906
+margin_right = 55.9094
+text = "The Middle is Lava"

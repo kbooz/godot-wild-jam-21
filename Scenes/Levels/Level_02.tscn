@@ -14,5 +14,7 @@ position = Vector2( 527, 228.901 )
 [node name="InitialPosition" parent="." index="2"]
 position = Vector2( 113, 160 )
 
-[node name="Label" parent="." index="6"]
-text = "The Way"
+[node name="Label" parent="Control" index="0"]
+margin_left = -24.1813
+margin_right = 24.8187
+text = "Two Way"

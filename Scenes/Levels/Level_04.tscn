@@ -17,5 +17,7 @@ position = Vector2( 483.949, 55.1687 )
 [node name="Hole2" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 483.949, 263.972 )
 
-[node name="Label" parent="." index="6"]
-text = "Bounce"
+[node name="Label" parent="Control" index="0"]
+margin_left = -33.7235
+margin_right = 33.2765
+text = "The Bounce"

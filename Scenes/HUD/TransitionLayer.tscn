@@ -31,13 +31,13 @@ resource_name = "Fade In"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 2.73208, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
@@ -53,17 +53,12 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0.420448, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }
 
-[node name="TransitionLayer" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TransitionLayer" type="CanvasLayer"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )

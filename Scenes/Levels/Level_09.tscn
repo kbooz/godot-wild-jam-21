@@ -20,5 +20,7 @@ tile_data = PoolIntArray( 589847, 47, 3, 655383, 47, 65539, 720919, 47, 65539, 7
 [node name="StickyTileMap" parent="." index="5"]
 tile_data = PoolIntArray( 262160, 47, 3, 327696, 47, 65539, 393232, 47, 65539, 458768, 47, 65539, 524304, 47, 65539, 589840, 47, 131075 )
 
-[node name="Label" parent="." index="6"]
-text = "The not that much trick shot"
+[node name="Label" parent="Control" index="0"]
+margin_left = -68.7542
+margin_right = 69.2458
+text = "The Trick (Sticky) Shot"
