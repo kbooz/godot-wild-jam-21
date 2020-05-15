@@ -13,3 +13,6 @@ tile_data = PoolIntArray( 524301, 47, 196608, 524302, 47, 196609, 524303, 47, 19
 
 [node name="Hole" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 488.139, 136.176 )
+
+[node name="Label" parent="." index="5"]
+text = "The Tunnel"

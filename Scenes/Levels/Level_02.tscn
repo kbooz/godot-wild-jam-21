@@ -13,3 +13,6 @@ position = Vector2( 527, 228.901 )
 
 [node name="InitialPosition" parent="." index="2"]
 position = Vector2( 113, 160 )
+
+[node name="Label" parent="." index="6"]
+text = "The Way"

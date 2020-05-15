@@ -19,3 +19,6 @@ position = Vector2( 335.369, 161.173 )
 
 [node name="Hole2" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 335.369, 268.014 )
+
+[node name="Label" parent="." index="7"]
+text = "The Spiked Shell"
