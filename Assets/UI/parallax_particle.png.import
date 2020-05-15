@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/base_hole.png-99e630c728de24556be1f2f675fd7b9e.stex"
+path="res://.import/parallax_particle.png-3b7bd272b1f01bd1766e95c5407d23df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/base_hole.png"
-dest_files=[ "res://.import/base_hole.png-99e630c728de24556be1f2f675fd7b9e.stex" ]
+source_file="res://Assets/UI/parallax_particle.png"
+dest_files=[ "res://.import/parallax_particle.png-3b7bd272b1f01bd1766e95c5407d23df.stex" ]
 
 [params]
 

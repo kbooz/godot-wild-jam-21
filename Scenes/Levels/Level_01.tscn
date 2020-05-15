@@ -16,3 +16,9 @@ position = Vector2( 223, 160 )
 
 [node name="InitialPosition" parent="." index="3"]
 position = Vector2( 78, 160 )
+
+[node name="Label" parent="." index="7"]
+margin_top = 296.0
+margin_right = 371.0
+margin_bottom = 310.0
+text = "Three Rings"

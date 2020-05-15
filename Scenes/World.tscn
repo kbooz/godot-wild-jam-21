@@ -7,10 +7,10 @@
 [ext_resource path="res://Classes/PlayerTrail.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HUD/TransitionLayer.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0.0636363 ), 0.0, 2.40411, 0, 0, Vector2( 0.550914, 0.572727 ), 1.5286, 1.5286, 0, 0, Vector2( 1, 1 ), 1.72258, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 0.21048, 0.273629, 0.945312, 1, 0, 0.789062, 1, 1 )
 
 [node name="Node" type="Node"]
@@ -27,9 +27,9 @@ position = Vector2( -176, -100 )
 [node name="PlayerTrail" type="Line2D" parent="."]
 z_index = -1
 width = 7.0
-width_curve = SubResource( 5 )
+width_curve = SubResource( 1 )
 default_color = Color( 0.133333, 0.658824, 0.376471, 1 )
-gradient = SubResource( 6 )
+gradient = SubResource( 2 )
 joint_mode = 2
 round_precision = 15
 script = ExtResource( 5 )
