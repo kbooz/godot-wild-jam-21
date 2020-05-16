@@ -128,11 +128,14 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
+		MainInstances.MainCamera.position = MainInstances.Player.position
+		MainInstances.MainCamera.zoom = Vector2(.5,.5)
 		SoundFX.play("Win", 1, -3)
 		nextLevelTimer.start()
 
 func _on_VisibilityNotifier2D_screen_exited():
-	die()
+	if state != IDLE:
+		die()
 
 func _on_NextLevel_timeout():
 	emit_signal("next_level")

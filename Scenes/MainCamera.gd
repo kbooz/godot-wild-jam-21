@@ -3,6 +3,7 @@ extends Camera2D
 var MainInstances = ResourceLoader.MainInstances
 
 var shake = 0
+var initialPosition = position
 
 onready var timer = $ScreenshakeTimer
 

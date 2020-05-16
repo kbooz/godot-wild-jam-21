@@ -79,6 +79,8 @@ func set_level(level: int):
 	MainInstances.GameManager.holes = instance.holes
 
 func _on_Player_next_level():
+	MainInstances.MainCamera.zoom = Vector2(1,1)
+	MainInstances.MainCamera.position = Vector2(320, 160)
 	next_level()
 
 func _on_Player_reset_level():
