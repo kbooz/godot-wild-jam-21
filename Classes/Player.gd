@@ -54,7 +54,7 @@ func on_idle_state():
 		MainInstances.PlayerTrail.add_point(position)
 	
 	if(Input.is_action_just_pressed("ui_mouse_click")):
-		SoundFX.play("Launch")
+		SoundFX.play("Launch", 1, 6)
 		velocity = (get_global_mouse_position() - global_position).normalized()
 		MainInstances.PlayerTrail.add_point(position)
 		state = MOVE;
@@ -71,7 +71,7 @@ func on_move_state(delta):
 			Enums.TILE_TYPE.HARZARD:
 				die()
 			Enums.TILE_TYPE.STICKY:
-				SoundFX.play("Glue")
+				SoundFX.play("Glue", 3)
 				to_idle()
 			_:
 				play_bounce()
@@ -81,7 +81,7 @@ func on_move_state(delta):
 				
 
 func play_bounce():
-	SoundFX.play("Bounce" + str(bounce_combo))
+	SoundFX.play("Bounce" + str(bounce_combo), 1, 6)
 	bounce_combo += 1
 	bounce_combo = clamp(bounce_combo, 0, 18)
 
@@ -107,7 +107,7 @@ func to_idle():
 	state = IDLE
 	
 func die():
-	SoundFX.play("Die")
+	SoundFX.play("Die", 1, 3)
 	position = initial_position
 	MainInstances.PlayerTrail.clear_points()
 	to_idle()
@@ -126,7 +126,7 @@ func _on_Tween_tween_completed(object, key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
-		SoundFX.play("Win")
+		SoundFX.play("Win", 1, -3)
 		nextLevelTimer.start()
 
 func _on_VisibilityNotifier2D_screen_exited():
