@@ -14,5 +14,5 @@ func _ready():
 	MainInstances.PlayerTrail.clear_points()
 	var tree = get_tree()
 	holes = tree.get_nodes_in_group("Holes")
-	if(has_animation):
-		labelAnimator.play("Entering")
+	#if(has_animation):
+		#labelAnimator.play("Entering")

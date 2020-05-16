@@ -1,8 +1,10 @@
 extends Line2D
 class_name Trail
 
-func _ready():
-	pass # Replace with function body.
+func _process(delta):
+	if(Input.is_action_just_pressed("ui_accept")):
+		clear_points()
+		
 
 func get_last_point():
 	var size = self.get_point_count()

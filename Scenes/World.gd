@@ -42,14 +42,15 @@ func _input(event):
 				viewport.warp_mouse(wrap_mouse)
 
 func _process(_delta):
-	if(Input.is_action_just_pressed("ui_pause")):
-		if(Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#if(Input.is_action_just_pressed("ui_pause")):
+	#	if(Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN):
+	#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#	else:
+	#		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			
 	#if(Input.is_action_just_pressed("ui_right")):
 	#	next_level()
+	pass
 
 func next_level():
 	var next_level = current_level + 1;
