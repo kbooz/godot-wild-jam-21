@@ -1,11 +1,11 @@
 extends Node2D
-class_name GameManager
 
 var MainInstances = ResourceLoader.MainInstances
 var holes = []
+var current_level = 0
 
 func _ready():
-	MainInstances.GameManager = self
+	current_level = 0
 
 func can_pass():
 	for hole in holes:

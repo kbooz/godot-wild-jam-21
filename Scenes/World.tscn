@@ -14,7 +14,9 @@ _data = [ Vector2( 0, 0.0636363 ), 0.0, 2.40411, 0, 0, Vector2( 0.550914, 0.5727
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 0.21048, 0.273629, 0.945312, 1, 0, 0.789062, 1, 1 )
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" groups=[
+"World",
+]]
 script = ExtResource( 2 )
 
 [node name="MainParticles" parent="." instance=ExtResource( 7 )]

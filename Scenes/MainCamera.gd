@@ -8,6 +8,7 @@ var initialPosition = position
 onready var timer = $ScreenshakeTimer
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	Events.connect("add_screenshake", self, "_on_Events_add_screenshake")
 	MainInstances.MainCamera = self
 
@@ -15,7 +16,7 @@ func queue_free():
 	MainInstances.MainCamera = null
 	.queue_free()
 
-func _process(delta):
+func _process(_delta):
 	offset_h = rand_range(-shake, shake)
 	offset_v = rand_range(-shake, shake)
 

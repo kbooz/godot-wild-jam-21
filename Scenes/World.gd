@@ -8,21 +8,30 @@ var max_level = 21
 onready var player = $Player
 onready var playerTrail = $PlayerTrail
 onready var transitionAnimator = $Control/ColorRect/Animator
-onready var transitionTimer = $AnimatorTimer
 
 var viewport: Viewport = null
 var viewport_rect: Vector2
 
 func _ready():
 	VisualServer.set_default_clear_color(Color("#271c22"))
+	MainInstances.Player = player
 	MainInstances.PlayerTrail = playerTrail
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	viewport = get_viewport()
 	viewport_rect = viewport.get_visible_rect().size
-	set_level(current_level)
+	set_level(GameManager.current_level)
+
+func goToLevelSelect():
+	transitionAnimator.play("Fade Out")
+	yield(get_tree().create_timer(1.0), "timeout")
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Scenes/LevelSelect.tscn")
 
 func _input(event):
-	if(Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN):
+	if Input.is_action_just_pressed("ui_cancel"):
+		goToLevelSelect()
+		
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN:
 		if event is InputEventMouseMotion:
 			var can_wrap = false
 			var wrap_mouse = event.position
@@ -66,6 +75,11 @@ func next_level():
 	yield(get_tree().create_timer(1.0), "timeout")
 	set_level( next_level if next_level <= max_level else 0 )
 
+func clear_level():
+	if(current_level_ref):
+		current_level_ref.queue_free()
+		remove_child(current_level_ref)
+
 func set_level(level: int):
 	if(current_level_ref):
 		current_level_ref.queue_free()
@@ -76,7 +90,7 @@ func set_level(level: int):
 	add_child_below_node(player, instance)
 	current_level_ref = instance
 	current_level = level
-	MainInstances.GameManager.holes = instance.holes
+	GameManager.holes = instance.holes
 
 func _on_Player_next_level():
 	MainInstances.MainCamera.zoom = Vector2(1,1)
@@ -84,4 +98,4 @@ func _on_Player_next_level():
 	next_level()
 
 func _on_Player_reset_level():
-	MainInstances.GameManager.reset_holes()
+	GameManager.reset_holes()

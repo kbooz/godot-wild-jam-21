@@ -33,7 +33,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-		# DEBUG
+	# DEBUG
 	if(Input.is_action_just_pressed("ui_accept")):
 		state = IDLE
 		position = initial_position
@@ -96,6 +96,7 @@ func on_fixing_state(delta):
 		return;
 	
 	velocity += distance
+	# warning-ignore:return_value_discarded
 	move_and_collide(velocity * delta)
 
 func move_to_center_of_fixed():
@@ -121,13 +122,13 @@ func _on_HoleDetector_area_entered(area: Area2D):
 	fixing_hole = area
 	fixing_hole.fixing()
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	to_idle()
 	if(fixing_hole):
 		SoundFX.play("Attach")
 		fixing_hole.touched()
 		fixing_hole = null
-	if(MainInstances.GameManager.can_pass()):
+	if(GameManager.can_pass()):
 		MainInstances.MainCamera.position = MainInstances.Player.position
 		MainInstances.MainCamera.zoom = Vector2(.5,.5)
 		SoundFX.play("Win", 1, -3)

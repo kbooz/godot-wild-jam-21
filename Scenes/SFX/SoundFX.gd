@@ -32,7 +32,7 @@ var sounds = {
 
 onready var sound_players = get_children()
 
-func _process(delta):
+func _process(_delta):
 	if(Input.is_action_just_pressed("ui_mute_sfx")):
 		Configuration.muted_sfx = !Configuration.muted_sfx
 

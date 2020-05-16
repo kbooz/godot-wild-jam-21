@@ -1,7 +1,7 @@
 extends Line2D
 class_name Trail
 
-func _process(delta):
+func _process(_delta):
 	if(Input.is_action_just_pressed("ui_accept")):
 		clear_points()
 		
