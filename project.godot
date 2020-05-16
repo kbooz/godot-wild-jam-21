@@ -59,6 +59,7 @@ config/icon="res://icon.png"
 ResourceLoader="*res://Scripts/ResourceLoader.gd"
 Events="*res://Scripts/Events.gd"
 Music="*res://Scenes/SFX/Music.tscn"
+SoundFX="*res://Scenes/SFX/SoundFX.tscn"
 
 [display]
 

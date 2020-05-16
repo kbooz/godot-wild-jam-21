@@ -48,8 +48,8 @@ func _process(_delta):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			
-	if(Input.is_action_just_pressed("ui_right")):
-		next_level()
+	#if(Input.is_action_just_pressed("ui_right")):
+	#	next_level()
 
 func next_level():
 	var next_level = current_level + 1;

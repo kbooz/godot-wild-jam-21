@@ -26,6 +26,7 @@ var state = IDLE
 var velocity = Vector2.ZERO
 var fixing_hole = null
 var acc = 1;
+var bounce_combo = 0;
 
 func _ready():
 	MainInstances.Player = self
@@ -53,6 +54,7 @@ func on_idle_state():
 		MainInstances.PlayerTrail.add_point(position)
 	
 	if(Input.is_action_just_pressed("ui_mouse_click")):
+		SoundFX.play("Launch")
 		velocity = (get_global_mouse_position() - global_position).normalized()
 		MainInstances.PlayerTrail.add_point(position)
 		state = MOVE;
@@ -69,12 +71,19 @@ func on_move_state(delta):
 			Enums.TILE_TYPE.HARZARD:
 				die()
 			Enums.TILE_TYPE.STICKY:
+				SoundFX.play("Glue")
 				to_idle()
 			_:
+				play_bounce()
 				velocity = velocity.bounce(collision.normal)
 				MainInstances.PlayerTrail.add_point(position)
 				MainInstances.PlayerTrail.add_point(position)
 				
+
+func play_bounce():
+	SoundFX.play("Bounce" + str(bounce_combo))
+	bounce_combo += 1
+	bounce_combo = clamp(bounce_combo, 0, 18)
 
 func on_fixing_state(delta):
 	var distance = fixing_hole.position - position
@@ -93,10 +102,12 @@ func move_to_center_of_fixed():
 		tween.start()
 
 func to_idle():
+	bounce_combo = 0
 	MainInstances.PlayerTrail.add_point(position);
 	state = IDLE
 	
 func die():
+	SoundFX.play("Die")
 	position = initial_position
 	MainInstances.PlayerTrail.clear_points()
 	to_idle()
@@ -111,9 +122,11 @@ func _on_HoleDetector_area_entered(area: Area2D):
 func _on_Tween_tween_completed(object, key):
 	to_idle()
 	if(fixing_hole):
+		SoundFX.play("Attach")
 		fixing_hole.touched()
 		fixing_hole = null
 	if(MainInstances.GameManager.can_pass()):
+		SoundFX.play("Win")
 		nextLevelTimer.start()
 
 func _on_VisibilityNotifier2D_screen_exited():
