@@ -16,4 +16,3 @@ func _ready():
 	holes = tree.get_nodes_in_group("Holes")
 	if(has_animation):
 		labelAnimator.play("Entering")
-	

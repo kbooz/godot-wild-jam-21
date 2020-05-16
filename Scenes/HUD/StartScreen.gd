@@ -17,3 +17,10 @@ func _on_TextureButton_pressed():
 	transitionAnimator.play("Fade Out")
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().change_scene("res://Scenes/World.tscn")
+
+
+func _on_MusicButton_toggled(button_pressed):
+	if(button_pressed):
+		Music.list_stop()
+	else:
+		Music.list_play()
