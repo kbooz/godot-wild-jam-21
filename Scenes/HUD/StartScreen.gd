@@ -4,7 +4,6 @@ onready var transitionLayer = $TransitionLayer
 onready var transitionAnimator = $TransitionLayer/ColorRect/Animator
 
 func _ready():
-	VisualServer.set_default_clear_color(Color("#3d253b"))
 	Music.list_play()
 
 func _process(delta):
@@ -17,7 +16,6 @@ func _on_TextureButton_pressed():
 	transitionAnimator.play("Fade Out")
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().change_scene("res://Scenes/World.tscn")
-
 
 func _on_MusicButton_toggled(button_pressed):
 	if(button_pressed):

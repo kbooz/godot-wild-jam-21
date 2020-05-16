@@ -17,7 +17,13 @@ position = Vector2( 320.704, 57.4861 )
 [node name="Hole3" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 320.704, 161.173 )
 
-[node name="Hole2" parent="." index="6" instance=ExtResource( 2 )]
+[node name="Hole4" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 277.645, 161.173 )
+
+[node name="Hole5" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 362.261, 161.173 )
+
+[node name="Hole2" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 320.704, 268.014 )
 
 [node name="Label" parent="Control" index="0"]

@@ -3,7 +3,7 @@ extends Node
 var MainInstances = ResourceLoader.MainInstances
 var current_level_ref: Node2D = null;
 var current_level: int = 0;
-var max_level = 20
+var max_level = 21
 
 onready var player = $Player
 onready var playerTrail = $PlayerTrail
@@ -42,15 +42,22 @@ func _input(event):
 				viewport.warp_mouse(wrap_mouse)
 
 func _process(_delta):
-	#if(Input.is_action_just_pressed("ui_pause")):
-	#	if(Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN):
-	#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#	else:
-	#		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-			
-	#if(Input.is_action_just_pressed("ui_right")):
-	#	next_level()
-	pass
+#	if(Input.is_action_just_pressed("ui_pause")):
+#		if(Input.get_mouse_mode() == Input.MOUSE_MODE_HIDDEN):
+#			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#		else:
+#			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	if(Input.is_action_just_pressed("ui_right")):
+		next_level()
+	if Input.is_action_just_pressed("ui_reset"):
+		reset_level()
+
+func reset_level():
+	MainInstances.Player.to_idle()
+	transitionAnimator.play("Fade Out")
+	yield(get_tree().create_timer(1.0), "timeout")
+	set_level(current_level)
 
 func next_level():
 	var next_level = current_level + 1;

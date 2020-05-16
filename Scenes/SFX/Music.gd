@@ -27,7 +27,3 @@ func toggle_music():
 
 func list_stop():
 	musicPlayer.stop()
-
-func _on_MusicPlayer_finished():
-	if(!Configuration.muted_music):
-		list_play()
