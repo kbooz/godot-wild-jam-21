@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 100, 300, 1 )
 flag_disable_z = true
@@ -20,4 +20,4 @@ position = Vector2( -3, 156 )
 amount = 180
 lifetime = 61.6
 preprocess = 72.73
-process_material = SubResource( 3 )
+process_material = SubResource( 1 )
