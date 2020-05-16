@@ -21,8 +21,8 @@ position = Vector2( 322.019, 45.6124 )
 position = Vector2( 320.919, 260.643 )
 
 [node name="Label" parent="Control" index="0"]
-margin_left = -48.1475
-margin_top = -13.44
-margin_right = 48.8525
-margin_bottom = -0.440002
+margin_left = -48.0
+margin_top = -26.0188
+margin_right = 49.0
+margin_bottom = -0.0187988
 text = "Can't Touch This"

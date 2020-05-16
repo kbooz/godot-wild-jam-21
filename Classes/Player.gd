@@ -54,6 +54,7 @@ func on_idle_state():
 		MainInstances.PlayerTrail.add_point(position)
 	
 	if(Input.is_action_just_pressed("ui_mouse_click")):
+		animator.play("Flash")
 		SoundFX.play("Launch", 1, 6)
 		velocity = (get_global_mouse_position() - global_position).normalized()
 		MainInstances.PlayerTrail.add_point(position)
@@ -74,6 +75,7 @@ func on_move_state(delta):
 				SoundFX.play("Glue", 3)
 				to_idle()
 			_:
+				animator.play("Flash")
 				play_bounce()
 				velocity = velocity.bounce(collision.normal)
 				MainInstances.PlayerTrail.add_point(position)

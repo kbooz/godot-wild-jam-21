@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Classes/Crosshair.gd" type="Script" id=1]
-[ext_resource path="res://Assets/cursor_direction.png" type="Texture" id=2]
+[ext_resource path="res://Assets/cursor_direction_2.png" type="Texture" id=2]
 
 [node name="CursorDirection" type="Node2D"]
 rotation = 1.5708
