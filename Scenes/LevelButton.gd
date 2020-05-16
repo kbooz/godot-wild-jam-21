@@ -18,5 +18,6 @@ func enable():
 	disabled = false;
 
 func _on_LevelButton_pressed():
-	GameManager.current_level = level
+	SoundFX.play("Win", 1)
+	GameManager.current_level = level - 1
 	emit_signal("select_level")

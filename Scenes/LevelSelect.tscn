@@ -36,21 +36,152 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 296.0
-margin_right = 344.0
+margin_left = 166.0
+margin_right = 474.0
 margin_bottom = 320.0
 alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 144.0
-margin_right = 48.0
-margin_bottom = 176.0
+margin_top = 90.0
+margin_right = 308.0
+margin_bottom = 230.0
 columns = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelButton" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+level = 1
+
+[node name="LevelButton2" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 52.0
+margin_right = 100.0
+level = 2
+
+[node name="LevelButton3" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 104.0
+margin_right = 152.0
+level = 3
+
+[node name="LevelButton4" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 156.0
+margin_right = 204.0
+
+[node name="LevelButton5" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 208.0
+margin_right = 256.0
+level = 5
+
+[node name="LevelButton6" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 260.0
+margin_right = 308.0
+level = 6
+
+[node name="LevelButton7" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 36.0
+margin_bottom = 68.0
+level = 7
+
+[node name="LevelButton8" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 52.0
+margin_top = 36.0
+margin_right = 100.0
+margin_bottom = 68.0
+level = 8
+
+[node name="LevelButton9" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 104.0
+margin_top = 36.0
+margin_right = 152.0
+margin_bottom = 68.0
+level = 9
+
+[node name="LevelButton10" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 156.0
+margin_top = 36.0
+margin_right = 204.0
+margin_bottom = 68.0
+level = 10
+
+[node name="LevelButton11" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 208.0
+margin_top = 36.0
+margin_right = 256.0
+margin_bottom = 68.0
+level = 11
+
+[node name="LevelButton12" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 260.0
+margin_top = 36.0
+margin_right = 308.0
+margin_bottom = 68.0
+level = 12
+
+[node name="LevelButton13" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 72.0
+margin_bottom = 104.0
+level = 13
+
+[node name="LevelButton14" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 52.0
+margin_top = 72.0
+margin_right = 100.0
+margin_bottom = 104.0
+level = 14
+
+[node name="LevelButton15" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 104.0
+margin_top = 72.0
+margin_right = 152.0
+margin_bottom = 104.0
+level = 15
+
+[node name="LevelButton16" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 156.0
+margin_top = 72.0
+margin_right = 204.0
+margin_bottom = 104.0
+level = 16
+
+[node name="LevelButton17" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 208.0
+margin_top = 72.0
+margin_right = 256.0
+margin_bottom = 104.0
+level = 17
+
+[node name="LevelButton18" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 260.0
+margin_top = 72.0
+margin_right = 308.0
+margin_bottom = 104.0
+level = 18
+
+[node name="LevelButton19" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 108.0
+margin_bottom = 140.0
+level = 19
+
+[node name="LevelButton20" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 52.0
+margin_top = 108.0
+margin_right = 100.0
+margin_bottom = 140.0
+level = 20
+
+[node name="LevelButton21" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 104.0
+margin_top = 108.0
+margin_right = 152.0
+margin_bottom = 140.0
+level = 21
+
+[node name="LevelButton22" parent="HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 156.0
+margin_top = 108.0
+margin_right = 204.0
+margin_bottom = 140.0
+level = 22
 
 [node name="TransitionLayer" parent="." instance=ExtResource( 4 )]
 

@@ -3,6 +3,7 @@ extends Node2D
 var MainInstances = ResourceLoader.MainInstances
 var holes = []
 var current_level = 0
+var completed_levels = []
 
 func _ready():
 	current_level = 0

@@ -129,9 +129,7 @@ func _on_Tween_tween_completed(_object, _key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if(GameManager.can_pass()):
-		MainInstances.MainCamera.position = MainInstances.Player.position
-		MainInstances.MainCamera.zoom = Vector2(.5,.5)
-		SoundFX.play("Win", 1, -3)
+		SoundFX.play("Win", 1, -6)
 		nextLevelTimer.start()
 
 func _on_VisibilityNotifier2D_screen_exited():
