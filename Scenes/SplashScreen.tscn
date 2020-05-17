@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon_pixelart.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/MatchupPro.ttf" type="DynamicFontData" id=2]
@@ -6,9 +6,9 @@
 [ext_resource path="res://Assets/Jam/juice-it.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Jam/two-buttons.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/SplashScreen.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Jam/godot-wild-jam-logo.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
 outline_size = 1
 outline_color = Color( 0.145098, 0.0745098, 0.101961, 1 )
 font_data = ExtResource( 2 )
@@ -24,29 +24,39 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
 color = Color( 0.152941, 0.109804, 0.133333, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="speedrun" type="Sprite" parent="."]
-position = Vector2( 245.5, 253 )
+position = Vector2( 245.5, 248.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="two-buttons" type="Sprite" parent="."]
-position = Vector2( 397.5, 253 )
+position = Vector2( 397.5, 248.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="juice-it" type="Sprite" parent="."]
-position = Vector2( 323.5, 253 )
+position = Vector2( 323.5, 248.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
+[node name="godot-wild-jam-logo" type="Sprite" parent="."]
+position = Vector2( 367, 112 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
 [node name="icon_pixelart" type="Sprite" parent="."]
-position = Vector2( 323, 135 )
+position = Vector2( 289, 113 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = 227.0
@@ -62,9 +72,9 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 173.0
-margin_top = 58.0
+margin_top = 44.0
 margin_right = 475.0
-margin_bottom = 84.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 1 )
 text = "for the Godot Wild Jam 21"
 align = 1
@@ -74,9 +84,9 @@ __meta__ = {
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 173.0
-margin_top = 180.0
+margin_top = 187.0
 margin_right = 475.0
-margin_bottom = 206.0
+margin_bottom = 213.0
 custom_fonts/font = SubResource( 1 )
 text = "Wildcards:"
 align = 1
