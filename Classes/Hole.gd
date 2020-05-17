@@ -15,15 +15,10 @@ func fixing():
 	state = Enums.HOLE_STATE.FIXING
 
 func touched():
-	#sprite.modulate = Color.darkblue
-	#sprite.texture = load("res://Assets/base_hole_filled.png")
 	state = Enums.HOLE_STATE.TOUCHED
 	emit_signal("touched", self)
 	Animator.play("touched")
-	
 
 func reset():
-	#sprite.texture = load("res://Assets/base_hole_empty.png")
-	#sprite.modulate = Color.white
 	state = Enums.HOLE_STATE.NOT_TOUCHED
 	Animator.play("normal")
