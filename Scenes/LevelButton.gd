@@ -25,10 +25,8 @@ func _on_LevelButton_pressed():
 	GameManager.current_level = level - 1
 	emit_signal("select_level")
 
-
 func _on_LevelButton_mouse_entered():
 	emit_signal("hovered", level)
-
 
 func _on_LevelButton_mouse_exited():
 	emit_signal("blurred", level)

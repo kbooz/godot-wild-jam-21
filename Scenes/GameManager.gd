@@ -52,8 +52,6 @@ func update_record(level):
 		return;
 	
 	var current_sum = current_record.bounces + current_record.launches
-	print(level)
-	print(records)
 	var previous_record = records[level]
 	if not previous_record.has("bounces") and not previous_record.has("launches"):
 		return

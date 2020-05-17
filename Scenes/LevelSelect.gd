@@ -64,8 +64,7 @@ func show_record(launches, bounces):
 	launchesCounter.text = launches
 	bouncesCounter.text = bounces
 	
-
 func _on_LevelButton_blurred(level):
-	if(current_hovered == level):
+	if(current_hovered == level - 1):
 		ui.hide()
 		current_hovered = null

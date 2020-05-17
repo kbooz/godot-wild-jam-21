@@ -12,11 +12,11 @@ __meta__ = {
 }
 
 [node name="LaunchesIcon" type="Sprite" parent="."]
-position = Vector2( 21.3649, 44.5703 )
+position = Vector2( 21.3649, 20.7437 )
 texture = ExtResource( 3 )
 
 [node name="BouncesIcon" type="Sprite" parent="."]
-position = Vector2( 21.3649, 21.0141 )
+position = Vector2( 22.5272, 44.8407 )
 texture = ExtResource( 2 )
 
 [node name="LaunchesCounter" type="Label" parent="."]

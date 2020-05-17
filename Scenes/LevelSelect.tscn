@@ -215,4 +215,14 @@ margin_left = 1.0
 margin_top = 253.723
 margin_right = 106.0
 margin_bottom = 318.723
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 14.0
+margin_top = -3.72301
+margin_right = 82.0
+margin_bottom = 10.277
+custom_fonts/font = ExtResource( 3 )
+text = "Highscore "
 [connection signal="pressed" from="HomeButtton" to="." method="_on_HomeButtton_pressed"]
+
+[editable path="UI"]

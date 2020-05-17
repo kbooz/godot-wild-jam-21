@@ -45,5 +45,4 @@ func play(sound_string, pitch_scale = 1, volume_db = 0):
 				soundPlayer.stream = sounds[sound_string]
 				soundPlayer.play()
 				return
-		print("Too many sounds playing at once")
 
