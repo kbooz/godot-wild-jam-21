@@ -124,11 +124,12 @@ func _on_HoleDetector_area_entered(area: Area2D):
 
 func _on_Tween_tween_completed(_object, _key):
 	to_idle()
-	if(fixing_hole):
+	if fixing_hole:
 		SoundFX.play("Attach")
 		fixing_hole.touched()
 		fixing_hole = null
-	if(GameManager.can_pass()):
+	if GameManager.can_pass():
+		GameManager.update_completed_levels(null)
 		SoundFX.play("Win", 1, -6)
 		nextLevelTimer.start()
 

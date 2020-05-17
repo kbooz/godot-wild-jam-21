@@ -2,7 +2,6 @@ extends Node
 
 var MainInstances = ResourceLoader.MainInstances
 var current_level_ref: Node2D = null;
-var current_level: int = 0;
 var max_level = 21
 
 onready var player = $Player
@@ -66,10 +65,10 @@ func reset_level():
 	MainInstances.Player.to_idle()
 	transitionAnimator.play("Fade Out")
 	yield(get_tree().create_timer(1.0), "timeout")
-	set_level(current_level)
+	set_level(GameManager.current_level)
 
 func next_level():
-	var next_level = current_level + 1;
+	var next_level = GameManager.current_level + 1;
 	MainInstances.Player.to_idle()
 	transitionAnimator.play("Fade Out")
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -89,7 +88,8 @@ func set_level(level: int):
 	transitionAnimator.play("Fade In")
 	add_child_below_node(player, instance)
 	current_level_ref = instance
-	current_level = level
+	GameManager.current_level = level
+	GameManager.update_completed_levels(level)
 	GameManager.holes = instance.holes
 
 func _on_Player_next_level():

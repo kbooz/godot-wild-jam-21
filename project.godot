@@ -55,8 +55,8 @@ Events="*res://Scripts/Events.gd"
 Music="*res://Scenes/SFX/Music.tscn"
 SoundFX="*res://Scenes/SFX/SoundFX.tscn"
 Configuration="*res://Scenes/Configuration.tscn"
-GameManager="*res://Scenes/GameManager.tscn"
 SaverAndLoader="*res://Scripts/SaverAndLoader.gd"
+GameManager="*res://Scenes/GameManager.tscn"
 
 [display]
 

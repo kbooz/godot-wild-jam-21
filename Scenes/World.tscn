@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Classes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/World.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/GameManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/MainCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Classes/PlayerTrail.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HUD/TransitionLayer.tscn" type="PackedScene" id=6]
@@ -36,9 +35,6 @@ gradient = SubResource( 2 )
 joint_mode = 2
 round_precision = 15
 script = ExtResource( 5 )
-
-[node name="GameManager" parent="." instance=ExtResource( 3 )]
-position = Vector2( -176, -100 )
 
 [node name="MainCamera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 160 )
