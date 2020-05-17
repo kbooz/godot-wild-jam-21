@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/LevelButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/MainFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/HUD/TransitionLayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/MainBg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/MusicButton.tscn" type="PackedScene" id=6]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -17,8 +19,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.0
+margin_top = 14.0
 margin_right = 45.0
-margin_bottom = 29.0
+margin_bottom = 43.0
 custom_fonts/font = ExtResource( 3 )
 text = "Level Selection"
 align = 1
@@ -32,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -183,6 +187,8 @@ margin_right = 204.0
 margin_bottom = 140.0
 level = 22
 
+[node name="MusicButton" parent="." instance=ExtResource( 6 )]
+
 [node name="TransitionLayer" parent="." instance=ExtResource( 4 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Sprite" parent="." instance=ExtResource( 5 )]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/UI/audio_on.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MusicButton.gd" type="Script" id=3]
+
+[node name="MusicButton" type="TextureButton"]
+margin_left = 605.0
+margin_top = 18.0
+margin_right = 629.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.5, 1.5 )
+toggle_mode = true
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_MusicButton_pressed"]

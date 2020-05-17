@@ -18,9 +18,11 @@ func list_play():
 	if music_list_index == music_list.size():
 		music_list_index = 0
 
+func is_playing():
+	return musicPlayer.playing
+
 func toggle_music():
-	Configuration.muted_music = !Configuration.muted_music
-	if(!Configuration.muted_music):
+	if not musicPlayer.playing:
 		list_play()
 	else:
 		list_stop()
