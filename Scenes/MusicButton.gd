@@ -10,5 +10,12 @@ var music_buttons_hover = {
 	false: preload("res://Assets/UI/audio_off_hover.png")
 }
 
+func _ready():
+	Music.connect("mute_music", self, "_on_Music_mute")
+
 func _on_MusicButton_pressed():
 	Music.toggle_music()
+
+func _on_Music_mute():
+	pressed = Music.is_playing()
+	

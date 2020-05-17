@@ -6,8 +6,11 @@ var music_list_index = 0
 
 onready var musicPlayer = $MusicPlayer
 
+signal mute_music
+
 func _process(_delta):
 	if(Input.is_action_just_pressed("ui_mute_music")):
+		emit_signal("mute_music")
 		toggle_music()
 
 func list_play():
