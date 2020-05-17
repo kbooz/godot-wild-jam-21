@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/LevelButton.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/MusicButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/UI/home_btn.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UI/home_btn_hover.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/HUD/LevelRecord.tscn" type="PackedScene" id=9]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -206,5 +207,12 @@ margin_right = 620.0
 [node name="TransitionLayer" parent="." instance=ExtResource( 4 )]
 
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
-position = Vector2( 320, 159 )
+position = Vector2( 321, 158 )
+
+[node name="UI" parent="." instance=ExtResource( 9 )]
+visible = false
+margin_left = 1.0
+margin_top = 253.723
+margin_right = 106.0
+margin_bottom = 318.723
 [connection signal="pressed" from="HomeButtton" to="." method="_on_HomeButtton_pressed"]
