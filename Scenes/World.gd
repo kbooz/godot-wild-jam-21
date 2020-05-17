@@ -50,8 +50,6 @@ func _input(event):
 				viewport.warp_mouse(wrap_mouse)
 
 func _process(_delta):
-	if(Input.is_action_just_pressed("ui_right")):
-		next_level()
 	if Input.is_action_just_pressed("ui_reset"):
 		reset_level()
 
