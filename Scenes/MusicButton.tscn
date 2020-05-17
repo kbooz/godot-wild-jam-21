@@ -10,7 +10,6 @@ margin_left = 598.0
 margin_top = 18.0
 margin_right = 622.0
 margin_bottom = 40.0
-rect_scale = Vector2( 1.5, 1.5 )
 toggle_mode = true
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 1 )
