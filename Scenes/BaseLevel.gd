@@ -21,7 +21,6 @@ func _on_Player_bounced():
 	render_UI()
 
 func _on_Player_launched():
-	print("launched")
 	GameManager.current_record.launches += 1
 	render_UI()
 
