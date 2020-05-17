@@ -59,11 +59,9 @@ func update_record(level):
 		return
 	
 	var previous_sum = int(previous_record.bounces) + int(previous_record.launches)
-	
 	if((current_sum > previous_sum) ||
 	(current_sum == previous_sum && current_record.launches > int(previous_record.launches))):
 		return;
-		
 	records[level] = record_to_string(current_record)
 	
 func record_to_string(record):
