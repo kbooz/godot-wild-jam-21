@@ -21,6 +21,7 @@ onready var cursorDirection = $MouseAnchor/CursorDirection
 onready var tween = $Tween
 onready var animator = $AnimationPlayer
 onready var nextLevelTimer = $NextLevel
+const COLLISION_EFFECT = preload("res://Classes/CollisionParticle.tscn")
 
 var initial_position = Vector2.ZERO
 
@@ -74,21 +75,31 @@ func on_move_state(delta):
 	
 	if (collision && collision.collider):
 		Events.emit_signal("add_screenshake", 0.3, 0.05)
+		print(collision)
 		match collision.collider.type:
 			Enums.TILE_TYPE.HARZARD:
 				die()
 			Enums.TILE_TYPE.STICKY:
 				SoundFX.play("Glue", 3)
 				emit_signal("bounced")
+				instance_collision_particle(collision)
 				to_idle()
 			_:
 				animator.play("Flash")
 				play_bounce()
+				instance_collision_particle(collision)
 				velocity = velocity.bounce(collision.normal)
 				emit_signal("bounced")
 				MainInstances.PlayerTrail.add_point(position)
 				MainInstances.PlayerTrail.add_point(position)
 				
+
+func instance_collision_particle(collision: KinematicCollision2D):
+	var scene = get_tree().current_scene
+	var instance = COLLISION_EFFECT.instance()
+	scene.add_child(instance)
+	instance.position = position
+	instance.rotation = collision.normal.angle()
 
 func play_bounce():
 	SoundFX.play("Bounce" + str(bounce_combo), 1, 6)
