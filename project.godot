@@ -44,8 +44,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot-wild-jam- 21"
-run/main_scene="res://Scenes/HUD/StartScreen.tscn"
+config/name="Bimp"
+run/main_scene="res://Scenes/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

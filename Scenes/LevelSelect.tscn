@@ -207,7 +207,6 @@ margin_right = 620.0
 [node name="TransitionLayer" parent="." instance=ExtResource( 4 )]
 
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
-position = Vector2( 321, 158 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 visible = false

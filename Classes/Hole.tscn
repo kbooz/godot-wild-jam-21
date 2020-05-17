@@ -7,14 +7,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.12692, 7.39179 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.547619, 1 )
 colors = PoolColorArray( 0, 1, 0.853516, 1, 1, 0.133333, 0.439216, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 14.79
 flag_disable_z = true
@@ -25,11 +25,11 @@ orbit_velocity = 0.08
 orbit_velocity_random = 0.0
 radial_accel = 51.46
 radial_accel_random = 0.18
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.02
 hue_variation_random = 0.55
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "normal"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Particles2D:emitting")
@@ -129,11 +129,9 @@ scale = Vector2( 0.85, 0.85 )
 shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-z_index = -1
-emitting = false
 amount = 15
-process_material = SubResource( 2 )
+process_material = SubResource( 4 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
-anims/normal = SubResource( 7 )
+anims/normal = SubResource( 5 )
 anims/touched = SubResource( 6 )
