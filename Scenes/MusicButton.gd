@@ -11,6 +11,7 @@ var music_buttons_hover = {
 }
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	Music.connect("mute_music", self, "_on_Music_mute")
 
 func _on_MusicButton_pressed():

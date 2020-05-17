@@ -94,7 +94,6 @@ func set_level(level: int, transition = true):
 	GameManager.holes = instance.holes
 	GameManager.reset_record()
 
-
 func _on_Player_next_level():
 	next_level()
 

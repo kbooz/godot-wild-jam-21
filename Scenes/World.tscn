@@ -46,7 +46,5 @@ smoothing_enabled = true
 
 [node name="AnimatorTimer" type="Timer" parent="."]
 wait_time = 0.5
-[connection signal="bounced" from="Player" to="." method="_on_Player_bounced"]
-[connection signal="launched" from="Player" to="." method="_on_Player_launched"]
 [connection signal="next_level" from="Player" to="." method="_on_Player_next_level"]
 [connection signal="reset_level" from="Player" to="." method="_on_Player_reset_level"]
