@@ -75,7 +75,6 @@ func on_move_state(delta):
 	
 	if (collision && collision.collider):
 		Events.emit_signal("add_screenshake", 0.3, 0.05)
-		print(collision)
 		match collision.collider.type:
 			Enums.TILE_TYPE.HARZARD:
 				die()
