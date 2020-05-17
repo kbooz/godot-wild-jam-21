@@ -25,6 +25,7 @@ func _on_TextureButton_pressed():
 		transitionInstance.fade_out()
 		yield(get_tree().create_timer(1.0), "timeout")
 		transitionInstance.queue_free()
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/World.tscn")
 
 func _on_LevelsButton_pressed():
@@ -34,4 +35,5 @@ func _on_LevelsButton_pressed():
 		transitionInstance.fade_out()
 		yield(get_tree().create_timer(1.0), "timeout")
 		transitionInstance.queue_free()
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/LevelSelect.tscn")

@@ -15,7 +15,7 @@ var current_record = {
 func _ready():
 	SaverAndLoader.load_data()
 	completed_levels = SaverAndLoader.data.completed_levels
-	records = SaverAndLoader.data.records
+	records = SaverAndLoader.data.records if SaverAndLoader.data.has("records") else {} 
 	current_level = 0
 
 func set_completed_levels(value):
@@ -52,8 +52,12 @@ func update_record(level):
 		return;
 	
 	var current_sum = current_record.bounces + current_record.launches
-	
+	print(level)
+	print(records)
 	var previous_record = records[level]
+	if not previous_record.has("bounces") and not previous_record.has("launches"):
+		return
+	
 	var previous_sum = int(previous_record.bounces) + int(previous_record.launches)
 	
 	if((current_sum > previous_sum) ||
@@ -64,6 +68,6 @@ func update_record(level):
 	
 func record_to_string(record):
 	return {
-		"launched": str(record.launches),
-		"bounced": str(record.bounces)
+		"launches": str(record.launches),
+		"bounces": str(record.bounces)
 	}
