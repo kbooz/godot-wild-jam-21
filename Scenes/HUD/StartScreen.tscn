@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/UI/blimp_logo_green.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/level_select_btn_off.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UI/madeby.png" type="Texture" id=2]
 [ext_resource path="res://Assets/UI/start_game_btn.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/HUD/StartScreen.gd" type="Script" id=4]
@@ -8,9 +8,8 @@
 [ext_resource path="res://Scenes/HUD/StartScreenCamera.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Animations/blimp_logo_animated_v2.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/MusicButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/UI/levels_btn.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/level_select_btn.png" type="Texture" id=9]
 [ext_resource path="res://Assets/UI/start_game_btn_off.png" type="Texture" id=10]
-[ext_resource path="res://Assets/UI/levels_btn_hover.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BlimpLogo"
@@ -51,17 +50,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
-margin_left = 261.0
-margin_top = 124.0
-margin_right = 388.0
-margin_bottom = 176.0
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 326, 150 )
 texture = ExtResource( 7 )
@@ -82,12 +70,12 @@ __meta__ = {
 [node name="MusicButton" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="LevelsButton" type="TextureButton" parent="CanvasLayer"]
-margin_left = 12.0
-margin_top = 18.0
-margin_right = 34.0
-margin_bottom = 40.0
-texture_normal = ExtResource( 9 )
-texture_hover = ExtResource( 11 )
+margin_left = 272.0
+margin_top = 235.0
+margin_right = 372.0
+margin_bottom = 263.0
+texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

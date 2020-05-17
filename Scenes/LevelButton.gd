@@ -12,6 +12,7 @@ export(int) var level = 0
 
 func _ready():
 	label.text = str(level)
+	# warning-ignore:return_value_discarded
 	self.is_hovered()
 
 func disable():
