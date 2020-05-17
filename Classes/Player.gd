@@ -3,6 +3,8 @@ class_name Player
 
 signal reset_level
 signal next_level
+signal launched
+signal bounced
 
 export(int) var SPEED = 600
 export(int) var MAX_VELOCITY = 11
@@ -32,11 +34,14 @@ func _ready():
 	MainInstances.Player = self
 	pass
 
+func initialize():
+	to_idle()
+	position = initial_position
+
 func _physics_process(delta):
 	# DEBUG
 	if(Input.is_action_just_pressed("ui_accept")):
-		state = IDLE
-		position = initial_position
+		emit_signal("reset_level")
 	match state:
 		IDLE:
 			on_idle_state()
@@ -58,6 +63,7 @@ func on_idle_state():
 		SoundFX.play("Launch", 1, 6)
 		velocity = (get_global_mouse_position() - global_position).normalized()
 		MainInstances.PlayerTrail.add_point(position)
+		emit_signal("launched")
 		state = MOVE;
 		
 func on_move_state(delta):
@@ -73,11 +79,13 @@ func on_move_state(delta):
 				die()
 			Enums.TILE_TYPE.STICKY:
 				SoundFX.play("Glue", 3)
+				emit_signal("bounced")
 				to_idle()
 			_:
 				animator.play("Flash")
 				play_bounce()
 				velocity = velocity.bounce(collision.normal)
+				emit_signal("bounced")
 				MainInstances.PlayerTrail.add_point(position)
 				MainInstances.PlayerTrail.add_point(position)
 				

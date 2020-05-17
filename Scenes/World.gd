@@ -7,6 +7,8 @@ var max_level = 21
 onready var player = $Player
 onready var playerTrail = $PlayerTrail
 onready var transitionAnimator = $Control/ColorRect/Animator
+onready var launchCounter = $UI/LaunchCounter
+onready var reboundCounter = $UI/ReboundCounter
 
 var viewport: Viewport = null
 var viewport_rect: Vector2
@@ -79,21 +81,37 @@ func clear_level():
 		current_level_ref.queue_free()
 		remove_child(current_level_ref)
 
-func set_level(level: int):
+func set_level(level: int, transition = true):
 	if(current_level_ref):
 		current_level_ref.queue_free()
 		remove_child(current_level_ref)
 	var new_level = load("res://Scenes/Levels/Level_0%d.tscn" % level)
 	var instance = new_level.instance()
-	transitionAnimator.play("Fade In")
+	if transition:
+		transitionAnimator.play("Fade In")
 	add_child_below_node(player, instance)
 	current_level_ref = instance
+	MainInstances.ReboundCounter = 0
+	MainInstances.LaunchCounter = 0
+	render_UI()
 	GameManager.current_level = level
 	GameManager.update_completed_levels(level)
 	GameManager.holes = instance.holes
+
+func render_UI():
+	reboundCounter.text = str(MainInstances.ReboundCounter)
+	launchCounter.text = str(MainInstances.LaunchCounter)
 
 func _on_Player_next_level():
 	next_level()
 
 func _on_Player_reset_level():
-	GameManager.reset_holes()
+	set_level(GameManager.current_level, false)
+
+func _on_Player_bounced():
+	MainInstances.ReboundCounter += 1
+	render_UI()
+
+func _on_Player_launched():
+	MainInstances.LaunchCounter += 1
+	render_UI()
