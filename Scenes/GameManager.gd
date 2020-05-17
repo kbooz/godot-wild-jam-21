@@ -16,7 +16,7 @@ func _ready():
 	SaverAndLoader.load_data()
 	completed_levels = SaverAndLoader.data.completed_levels
 	records = SaverAndLoader.data.records if SaverAndLoader.data.has("records") else {} 
-	current_level = 0
+	current_level = 0 if (!completed_levels || (completed_levels && !completed_levels.size())) else int(completed_levels.max())
 
 func set_completed_levels(value):
 	completed_levels = value
