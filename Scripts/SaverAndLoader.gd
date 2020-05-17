@@ -1,12 +1,14 @@
 extends Node
 
 var data = {
-	"completed_levels": []
+	"completed_levels": [],
+	"records": {}
 }
 
 func save_data():
 	var save_dict = {
-		"completed_levels": GameManager.completed_levels
+		"completed_levels": GameManager.completed_levels,
+		"records": GameManager.records
 	}
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/TileMap.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Blocks/HazardTileMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Blocks/StickyTileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/MainFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scenes/HUD/LevelRecord.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,6 +27,10 @@ script = ExtResource( 2 )
 type = 2
 
 [node name="Control" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="Control" instance=ExtResource( 7 )]
+margin_right = 114.0
+margin_bottom = 67.0
 
 [node name="Label" type="Label" parent="Control"]
 anchor_left = 0.5

@@ -119,9 +119,6 @@ func to_idle():
 	
 func die():
 	SoundFX.play("Die", 1, 3)
-	position = initial_position
-	MainInstances.PlayerTrail.clear_points()
-	to_idle()
 	emit_signal("reset_level")
 	
 func _on_HoleDetector_area_entered(area: Area2D):
@@ -137,7 +134,7 @@ func _on_Tween_tween_completed(_object, _key):
 		fixing_hole.touched()
 		fixing_hole = null
 	if GameManager.can_pass():
-		GameManager.update_completed_levels(null)
+		GameManager.update_completed_levels(null, true)
 		SoundFX.play("Win", 1, -6)
 		nextLevelTimer.start()
 

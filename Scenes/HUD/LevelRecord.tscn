@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/UI/rebound_icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/launch_icon.png" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+margin_right = 105.0
+margin_bottom = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LaunchesIcon" type="Sprite" parent="."]
+position = Vector2( 21.3649, 44.5703 )
+texture = ExtResource( 3 )
+
+[node name="BouncesIcon" type="Sprite" parent="."]
+position = Vector2( 21.3649, 21.0141 )
+texture = ExtResource( 2 )
+
+[node name="LaunchesCounter" type="Label" parent="."]
+margin_left = 38.5477
+margin_top = 13.4822
+margin_right = 78.5477
+margin_bottom = 27.4822
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BouncesCounter" type="Label" parent="."]
+margin_left = 38.5477
+margin_top = 37.0286
+margin_right = 78.5477
+margin_bottom = 51.0286
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
