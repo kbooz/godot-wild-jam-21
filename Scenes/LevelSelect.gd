@@ -13,7 +13,7 @@ func _ready():
 	register_buttons()
 	var buttons = get_tree().get_nodes_in_group("LevelBtns")
 	for button in buttons:
-		if not GameManager.completed_levels.has(str(button.level - 1)):
+		if not GameManager.completed_levels.has(str(button.level - 1)) and button.level != 1:
 			button.disabled = true
 		button.connect("select_level", self, "_on_level_select")
 		button.connect("hovered", self, "_on_LevelButton_hovered")
