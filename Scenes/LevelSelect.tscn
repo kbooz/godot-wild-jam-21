@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/LevelButton.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/HUD/TransitionLayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/MainBg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/MusicButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/UI/home_btn.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/home_btn_hover.png" type="Texture" id=8]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -187,8 +189,23 @@ margin_right = 204.0
 margin_bottom = 140.0
 level = 22
 
+[node name="HomeButtton" type="TextureButton" parent="."]
+margin_left = 12.0
+margin_top = 18.0
+margin_right = 34.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MusicButton" parent="." instance=ExtResource( 6 )]
+margin_right = 620.0
 
 [node name="TransitionLayer" parent="." instance=ExtResource( 4 )]
 
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
+position = Vector2( 320, 159 )
+[connection signal="pressed" from="HomeButtton" to="." method="_on_HomeButtton_pressed"]

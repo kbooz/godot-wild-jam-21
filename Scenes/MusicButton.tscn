@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/UI/audio_on.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/audio_on_normal.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/audio_off_hover.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/MusicButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/UI/audio_on_hover.png" type="Texture" id=4]
 
 [node name="MusicButton" type="TextureButton"]
-margin_left = 605.0
+margin_left = 598.0
 margin_top = 18.0
-margin_right = 629.0
+margin_right = 622.0
 margin_bottom = 40.0
 rect_scale = Vector2( 1.5, 1.5 )
 toggle_mode = true
 shortcut_in_tooltip = false
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

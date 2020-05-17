@@ -2,18 +2,28 @@ extends Control
 
 onready var transitionLayer = $TransitionLayer
 onready var transitionAnimator = $TransitionLayer/ColorRect/Animator
+onready var canvasLayer = $CanvasLayer
 
 func _ready():
-	Music.list_play()
-
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		Events.emit_signal("add_screenshake", 0.2, 0.1)
+	transitionAnimator.play("Fade In")
+	yield(get_tree().create_timer(0.5), "timeout")
+	transitionLayer.scale = Vector2(0, 0)
+	if not Music.is_playing():
+		Music.list_play()
 
 func _on_TextureButton_pressed():
-	SoundFX.play("Win")
-	transitionLayer.layer = 2
+	GameManager.game_started = true
+	SoundFX.play("Win", 1, -6)
+	transitionLayer.scale = Vector2(1, 1)
 	transitionAnimator.play("Fade Out")
 	yield(get_tree().create_timer(1.0), "timeout")
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/World.tscn")
+
+func _on_LevelsButton_pressed():
+	SoundFX.play("Win", 1, -6)
+	transitionLayer.scale = Vector2(1, 1)
+	transitionAnimator.play("Fade Out")
+	yield(get_tree().create_timer(1.0), "timeout")
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Scenes/LevelSelect.tscn")

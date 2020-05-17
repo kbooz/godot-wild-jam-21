@@ -4,6 +4,7 @@ var MainInstances = ResourceLoader.MainInstances
 var holes = []
 var current_level = 0
 var completed_levels = [] setget set_completed_levels
+var game_started = false
 
 func _ready():
 	SaverAndLoader.load_data()

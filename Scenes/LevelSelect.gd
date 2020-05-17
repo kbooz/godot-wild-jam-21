@@ -1,6 +1,5 @@
 extends Control
 
-onready var canvasLayer = $CanvasLayer
 onready var transitionLayer = $TransitionLayer
 onready var transitionAnimator = $TransitionLayer/ColorRect/Animator
 onready var musicButton = $MusicButton
@@ -18,7 +17,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func register_buttons():
-	musicButton.texture_normal = musicButton.music_buttons[Music.is_playing()]
+	musicButton.pressed = !Music.is_playing()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -34,3 +33,11 @@ func _on_level_select():
 	yield(get_tree().create_timer(1.0), "timeout")
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/World.tscn")
+
+func _on_HomeButtton_pressed():
+	SoundFX.play("Win", 1, -6)
+	transitionLayer.scale = Vector2(1, 1)
+	transitionAnimator.play("Fade Out")
+	yield(get_tree().create_timer(1.0), "timeout")
+	# warning-ignore:return_value_discarded	
+	get_tree().change_scene("res://Scenes/HUD/StartScreen.tscn")
